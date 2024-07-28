@@ -3,6 +3,6 @@
   "compilerOptions": {
     "outDir": "dist"
   },
-  "include": ["src", "turbo"],
+  "include": ["lint-staged.config.cjs", "package.json", "src", "turbo"],
   "exclude": ["node_modules", "dist"]
 }
