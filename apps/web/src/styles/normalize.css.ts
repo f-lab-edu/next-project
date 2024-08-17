@@ -48,6 +48,6 @@ globalStyle("table", {
   borderSpacing: 0,
 });
 
-globalStyle("#__next", {
+globalStyle("#__next, #__app", {
   isolation: "isolate",
 });
