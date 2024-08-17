@@ -1,6 +1,6 @@
 import { createTheme } from "@vanilla-extract/css";
 
-import { commonThemeColors, darkThemeColors, themeColorContract } from "./tokens/colors.css";
+import { commonThemeColors, darkThemeColors, themeColorContract } from "../tokens/colors.css";
 
 export const darkThemeClass = createTheme(
   { ...themeColorContract },
