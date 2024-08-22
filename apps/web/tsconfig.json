@@ -12,7 +12,7 @@
   },
   "include": [
     "next-env.d.ts",
-    "next.config.mjs",
+    "next.config.js",
     "lint-staged.config.cjs",
     "**/*.ts",
     "**/*.tsx",
