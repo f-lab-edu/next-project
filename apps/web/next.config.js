@@ -6,7 +6,7 @@ const { PHASE_DEVELOPMENT_SERVER } = require("next/constants");
 /** @type {import('next').NextConfig} */
 module.exports = (phase) => {
   const withVanillaExtract = createVanillaExtractPlugin({
-    identifiers: phase === PHASE_DEVELOPMENT_SERVER ? "short" : "debug",
+    identifiers: phase === PHASE_DEVELOPMENT_SERVER ? "debug" : "short",
   });
 
   const nextConfig = {
