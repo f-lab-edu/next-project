@@ -17,6 +17,24 @@ importers:
       '@commitlint/types':
         specifier: ^19.0.3
         version: 19.0.3
+      '@vanilla-extract/css':
+        specifier: ^1.15.3
+        version: 1.15.3
+      '@vanilla-extract/css-utils':
+        specifier: ^0.1.4
+        version: 0.1.4
+      '@vanilla-extract/dynamic':
+        specifier: ^2.1.1
+        version: 2.1.1
+      '@vanilla-extract/next-plugin':
+        specifier: ^2.4.3
+        version: 2.4.3(@types/node@20.11.24)(next@14.2.5)(webpack@5.93.0)
+      '@vanilla-extract/recipes':
+        specifier: ^0.5.3
+        version: 0.5.3(@vanilla-extract/css@1.15.3)
+      '@vanilla-extract/sprinkles':
+        specifier: ^1.6.2
+        version: 1.6.2(@vanilla-extract/css@1.15.3)
       husky:
         specifier: ^9.1.1
         version: 9.1.1
@@ -73,22 +91,22 @@ importers:
         specifier: ^18
         version: 18.2.19
       '@vanilla-extract/css':
-        specifier: ^1.15.3
+        specifier: '*'
         version: 1.15.3
       '@vanilla-extract/css-utils':
-        specifier: ^0.1.4
+        specifier: '*'
         version: 0.1.4
       '@vanilla-extract/dynamic':
-        specifier: ^2.1.1
+        specifier: '*'
         version: 2.1.1
       '@vanilla-extract/next-plugin':
-        specifier: ^2.4.3
+        specifier: '*'
         version: 2.4.3(@types/node@20.11.24)(next@14.2.5)(webpack@5.93.0)
       '@vanilla-extract/recipes':
-        specifier: ^0.5.3
+        specifier: '*'
         version: 0.5.3(@vanilla-extract/css@1.15.3)
       '@vanilla-extract/sprinkles':
-        specifier: ^1.6.2
+        specifier: '*'
         version: 1.6.2(@vanilla-extract/css@1.15.3)
       eslint:
         specifier: ^8
@@ -159,6 +177,24 @@ importers:
       '@types/react-dom':
         specifier: ^18.2.19
         version: 18.2.19
+      '@vanilla-extract/css':
+        specifier: '*'
+        version: 1.15.3
+      '@vanilla-extract/css-utils':
+        specifier: '*'
+        version: 0.1.4
+      '@vanilla-extract/dynamic':
+        specifier: '*'
+        version: 2.1.1
+      '@vanilla-extract/next-plugin':
+        specifier: '*'
+        version: 2.4.3(@types/node@20.11.24)(next@14.2.5)(webpack@5.93.0)
+      '@vanilla-extract/recipes':
+        specifier: '*'
+        version: 0.5.3(@vanilla-extract/css@1.15.3)
+      '@vanilla-extract/sprinkles':
+        specifier: '*'
+        version: 1.6.2(@vanilla-extract/css@1.15.3)
       eslint:
         specifier: ^8.57.0
         version: 8.57.0
@@ -1963,7 +1999,7 @@ packages:
       deepmerge: 4.3.1
       media-query-parser: 2.0.2
       modern-ahocorasick: 1.0.1
-      picocolors: 1.0.0
+      picocolors: 1.0.1
     transitivePeerDependencies:
       - babel-plugin-macros
     dev: true
@@ -2051,7 +2087,7 @@ packages:
       '@vanilla-extract/integration': 7.1.7(@types/node@20.11.24)
       debug: 4.3.4
       loader-utils: 2.0.4
-      picocolors: 1.0.0
+      picocolors: 1.0.1
       webpack: 5.93.0
     transitivePeerDependencies:
       - '@types/node'
@@ -6921,7 +6957,7 @@ packages:
       cac: 6.7.14
       debug: 4.3.4
       pathe: 1.1.2
-      picocolors: 1.0.0
+      picocolors: 1.0.1
       vite: 5.4.0(@types/node@20.11.24)
     transitivePeerDependencies:
       - '@types/node'
