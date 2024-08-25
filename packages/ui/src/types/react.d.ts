@@ -1,4 +1,6 @@
-import { DetailedHTMLProps, HTMLAttributes } from "react";
+import { ComponentPropsWithoutRef, DetailedHTMLProps, HTMLAttributes } from "react";
+
+import { Combine } from "./utils";
 
 declare global {
   namespace JSX {
@@ -7,3 +9,8 @@ declare global {
     }
   }
 }
+
+export type PolyMorphismPropsWithoutRef<Comp extends ElementType, Props = unknown> = Combine<
+  ComponentPropsWithoutRef<Comp>,
+  Combine<Props, { asChild?: boolean }>
+>;
