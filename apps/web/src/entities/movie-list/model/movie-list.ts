@@ -1,15 +1,19 @@
+import { createBaseModel } from "@/shared/lib";
+
 import { MovieListRes } from "../api/response-types/movie-list";
 
-export class MovieList {
+import { MovieListItem } from "./movie-list-item";
+
+export class MovieList extends createBaseModel<MovieListRes | null>() {
   constructor(private popularMovieList: MovieListRes | null) {
-    Object.assign(this, popularMovieList);
+    super(popularMovieList);
   }
 
-  get allPeopleWatch() {
+  get GeneralAudienceMovies() {
     if (!this.popularMovieList) {
       return null;
     }
 
-    return this.popularMovieList.results.filter(({ adult }) => !adult);
+    return this.popularMovieList.results.filter(({ adult }) => !adult).map((item) => new MovieListItem(item));
   }
 }
