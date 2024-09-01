@@ -4,7 +4,7 @@ import { tmdbHttp } from "@/shared/api";
 import { camelCaseObjMapper, Nullable } from "@/shared/lib";
 
 import { PopularMovieListReqParams } from "./request-types";
-import { PopularMovieListRes } from "./response-types";
+import { MovieListRes } from "./response-types";
 
 export default class MovieListApi {
   static baseURL = "movie";
@@ -14,7 +14,7 @@ export default class MovieListApi {
     language = "ko-KR",
     region = 410,
     ...axiosConfig
-  }: PopularMovieListReqParams): Promise<AxiosResponse<Nullable<PopularMovieListRes>>> {
+  }: PopularMovieListReqParams): Promise<AxiosResponse<Nullable<MovieListRes>>> {
     const { data, ...rest } = await tmdbHttp.get(`${this.baseURL}/popular`, {
       params: {
         page,
