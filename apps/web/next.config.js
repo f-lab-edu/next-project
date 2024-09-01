@@ -11,6 +11,7 @@ module.exports = (phase) => {
 
   const nextConfig = {
     reactStrictMode: true,
+    transpilePackages: ["@repo/ui"],
   };
 
   return withVanillaExtract(nextConfig);
