@@ -6,7 +6,9 @@
     "./button": "./src/button.tsx",
     "./card": "./src/card.tsx",
     "./code": "./src/code.tsx",
-    "./slot": "./src/slot/index.ts"
+    "./slot": "./src/slot/index.ts",
+    "./aspect-ratio": "./src/aspect-ratio/index.ts",
+    "./types": "./src/types/index.d.ts"
   },
   "scripts": {
     "lint": "eslint . --max-warnings 0",
