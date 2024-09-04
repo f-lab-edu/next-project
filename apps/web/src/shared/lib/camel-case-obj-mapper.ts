@@ -1,6 +1,6 @@
 import { snakeToCamelCase } from "./snake-to-camel-case";
 
-export const camelCaseObjMapper = <T extends Record<string, unknown>>(model: Record<string, unknown>) => {
+export const camelCaseObjMapper = <T extends Record<string, unknown>>(model: T) => {
   if (!model) return null;
 
   const newCamelCaseModel: Record<string, unknown> = {};

@@ -14,7 +14,7 @@ export const useFetchPopularMovieList = (
   const { data, status, error } = useQuery({
     queryKey: [...movieListQueryKeys.popularMovieList(page, language, region)],
     queryFn: () => MovieListApi.getPopularMovieList({ page, language, region }),
-    select: (data) => new MovieList(data.data),
+    select: (data) => new MovieList(data),
   });
 
   return {

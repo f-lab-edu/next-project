@@ -1,5 +1,3 @@
-import { AxiosResponse } from "axios";
-
 import { tmdbHttp } from "@/shared/api";
 import { camelCaseObjMapper, Nullable } from "@/shared/lib";
 
@@ -14,16 +12,16 @@ export default class MovieListApi {
     language = "ko-KR",
     region = 410,
     ...axiosConfig
-  }: PopularMovieListReqParams): Promise<AxiosResponse<Nullable<MovieListRes>>> {
-    const { data, ...rest } = await tmdbHttp.get(`${this.baseURL}/popular`, {
-      params: {
-        page,
-        language,
-        region,
-      },
-      ...axiosConfig,
-    });
-
-    return { data: camelCaseObjMapper(data), ...rest };
+  }: PopularMovieListReqParams): Promise<Nullable<MovieListRes>> {
+    return tmdbHttp
+      .get(`${this.baseURL}/popular`, {
+        params: {
+          page,
+          language,
+          region,
+        },
+        ...axiosConfig,
+      })
+      .then((res) => camelCaseObjMapper(res.data));
   }
 }
