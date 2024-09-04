@@ -11,6 +11,12 @@
     "@commitlint/cli": "^19.3.0",
     "@commitlint/config-conventional": "^19.2.2",
     "@commitlint/types": "^19.0.3",
+    "@vanilla-extract/css": "^1.15.3",
+    "@vanilla-extract/css-utils": "^0.1.4",
+    "@vanilla-extract/dynamic": "^2.1.1",
+    "@vanilla-extract/next-plugin": "^2.4.3",
+    "@vanilla-extract/recipes": "^0.5.3",
+    "@vanilla-extract/sprinkles": "^1.6.2",
     "husky": "^9.1.1",
     "lint-staged": "^15.2.7",
     "prettier": "^3.2.5",
@@ -20,5 +26,8 @@
   "packageManager": "pnpm@8.15.6",
   "engines": {
     "node": ">=18"
+  },
+  "dependencies": {
+    "clsx": "^2.1.1"
   }
 }
