@@ -1,6 +1,4 @@
-import { BaseAxiosRes } from "@/shared/api";
-
-export interface PopularMovie {
+export interface MovieListItem {
   adult: boolean;
   backdropPath: string;
   genreIds: number[];
@@ -15,9 +13,4 @@ export interface PopularMovie {
   video: boolean;
   voteAverage: number;
   voteCount: number;
-}
-
-export interface PopularMovieListRes extends BaseAxiosRes {
-  page: number;
-  results: PopularMovie[];
 }

@@ -14,16 +14,12 @@ export const AspectRatio = forwardRef((props: AspectRatioProps, forwardedRef: Fo
 
   return (
     <div
-      className={baseAspectRatioRootWrapper}
+      className={clsx(baseAspectRatioRootWrapper, className)}
       style={assignInlineVars({
         [ratio]: propsRatio.toString(),
       })}
     >
-      <Comp
-        ref={forwardedRef}
-        className={clsx(baseAspectRatioRoot, "base-aspect-ratio-root", className)}
-        {...aspectRatioProps}
-      />
+      <Comp ref={forwardedRef} className={clsx(baseAspectRatioRoot, "base-aspect-ratio-root")} {...aspectRatioProps} />
     </div>
   );
 });
