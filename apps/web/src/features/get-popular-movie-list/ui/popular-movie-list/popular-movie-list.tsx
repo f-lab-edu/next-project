@@ -5,10 +5,10 @@ import { SwiperOptions } from "swiper/types";
 import { PopularMovieCard } from "@/entities/movie-list";
 import { screenBreakPoints } from "@/styles/tokens/screen.css";
 
-import { useFetchPopularMovieList } from "../../api/use-fetch-popular-movie-list";
+import { useFetchPopularMovieListQuery } from "../../api/use-fetch-popular-movie-list";
 
 export function PopularMovieList() {
-  const { popularMovieList, popularMovieListStatus } = useFetchPopularMovieList();
+  const { data: popularMovieList, status: popularMovieListStatus } = useFetchPopularMovieListQuery();
 
   const swiperBreakPoints: SwiperOptions["breakpoints"] = useMemo(
     () => ({
