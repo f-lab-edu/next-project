@@ -1,6 +1,6 @@
 import { style } from "@vanilla-extract/css";
 
-import { globalThemeVars, themeColorContract } from "@/styles/theme";
+import { globalThemeVars, themeColorContract } from "@/shared/styles";
 
 export const movieInfoCardContainer = style({
   display: "flex",

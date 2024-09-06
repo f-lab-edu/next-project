@@ -1,6 +1,6 @@
 import { style } from "@vanilla-extract/css";
 
-import { globalThemeVars } from "@/styles/theme";
+import { globalThemeVars } from "@/shared/styles/theme";
 
 export const popularMovieListTitle = style({
   margin: "14px 0",

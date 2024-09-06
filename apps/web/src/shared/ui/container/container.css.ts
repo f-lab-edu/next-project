@@ -1,7 +1,7 @@
 import { createVar, style } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
 
-import { screenBreakPoints } from "@/styles/tokens/screen.css";
+import { screenBreakPoints } from "@/shared/styles";
 
 export const gutterVar = createVar();
 

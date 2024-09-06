@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { SwiperOptions } from "swiper/types";
 
 import { PopularMovieCard } from "@/entities/movie-list";
-import { screenBreakPoints } from "@/styles/tokens/screen.css";
+import { screenBreakPoints } from "@/shared/styles";
 
 import { useFetchPopularMovieListQuery } from "../../api/use-fetch-popular-movie-list";
 

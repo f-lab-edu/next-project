@@ -1,7 +1,7 @@
 import { createVar, style } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
 
-import { screenBreakPoints } from "@/styles/tokens/screen.css";
+import { screenBreakPoints } from "@/shared/styles";
 
 import { gutterVar, lgColumnsVar, mdColumnsVar, smColumnsVar } from "../container/container.css";
 
