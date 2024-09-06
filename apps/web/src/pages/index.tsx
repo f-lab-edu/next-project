@@ -1,8 +1,10 @@
 import Head from "next/head";
 
+import { PopularMovieList } from "@/features/get-popular-movie-list";
 import { Col } from "@/shared/ui/col";
 import { Container } from "@/shared/ui/container";
 import { Row } from "@/shared/ui/row";
+import { popularMovieListTitle } from "@/view/home";
 
 export default function Home() {
   return (
@@ -15,8 +17,9 @@ export default function Home() {
       </Head>
       <Container>
         <Row>
-          <Col lg={4} md={2} sm={1}>
-            TEST
+          <Col lg={12} md={12} sm={4}>
+            <h2 className={popularMovieListTitle}>트렌드</h2>
+            <PopularMovieList />
           </Col>
         </Row>
       </Container>
