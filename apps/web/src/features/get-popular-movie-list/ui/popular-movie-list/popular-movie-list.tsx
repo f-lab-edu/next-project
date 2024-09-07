@@ -1,14 +1,13 @@
+import { useQuery } from "@tanstack/react-query";
 import { useMemo } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { SwiperOptions } from "swiper/types";
 
-import { PopularMovieCard } from "@/entities/movie-list";
+import { PopularMovieCard, movieListQueries } from "@/entities/movie-list";
 import { screenBreakPoints } from "@/shared/styles";
 
-import { useFetchPopularMovieListQuery } from "../../api/use-fetch-popular-movie-list";
-
 export function PopularMovieList() {
-  const { data: popularMovieList, status: popularMovieListStatus } = useFetchPopularMovieListQuery();
+  const { data: popularMovieList, status: popularMovieListStatus } = useQuery(movieListQueries.popularMovieList());
 
   const swiperBreakPoints: SwiperOptions["breakpoints"] = useMemo(
     () => ({
@@ -28,7 +27,7 @@ export function PopularMovieList() {
 
   return (
     <Swiper breakpoints={swiperBreakPoints} slidesPerView={3} spaceBetween={8}>
-      {popularMovieList?.GeneralAudienceMovies?.map((movieInfo) => {
+      {popularMovieList.GeneralAudienceMovies?.map((movieInfo) => {
         return (
           <SwiperSlide key={movieInfo.id}>
             <PopularMovieCard movieInfo={movieInfo} />
