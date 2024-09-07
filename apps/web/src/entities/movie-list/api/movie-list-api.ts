@@ -1,20 +1,24 @@
 import { tmdbHttp } from "@/shared/api";
-import { camelCaseObjMapper, Nullable } from "@/shared/lib";
+import { camelCaseObjMapper } from "@/shared/lib";
 
-import { PopularMovieListReqParams } from "./request-types";
+import { MovieListReqParams } from "./request-types";
 import { MovieListDTO } from "./response-types";
+import { UpcomingMovieListDTO } from "./response-types/upcoming-movie-list";
+
+const movieBaseURL = "movie";
 
 export default class MovieListApi {
-  static baseURL = "movie";
-
+  /**
+   * 트렌드 영화 목록
+   */
   static async getPopularMovieList({
     page = 1,
     language = "ko-KR",
     region = 410,
     ...axiosConfig
-  }: PopularMovieListReqParams): Promise<Nullable<MovieListDTO>> {
+  }: MovieListReqParams): Promise<MovieListDTO> {
     return tmdbHttp
-      .get(`${this.baseURL}/popular`, {
+      .get(`${movieBaseURL}/popular`, {
         params: {
           page,
           language,
@@ -22,6 +26,17 @@ export default class MovieListApi {
         },
         ...axiosConfig,
       })
+      .then((res) => camelCaseObjMapper(res.data));
+  }
+
+  /**
+   * 개봉 예정 영화 목록
+   */
+  static async getUpcomingMovieList(
+    { page, language, region, ...axiosConfig }: MovieListReqParams = { page: 1, language: "ko-KR", region: "KR" },
+  ): Promise<UpcomingMovieListDTO> {
+    return tmdbHttp
+      .get(`${movieBaseURL}/upcoming`, { params: { page, language, region }, ...axiosConfig })
       .then((res) => camelCaseObjMapper(res.data));
   }
 }
