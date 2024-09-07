@@ -12,7 +12,7 @@ export const movieListQueryKeys = {
 };
 
 export const movieListQueries = {
-  popularMovieList: ({ page, language, region }: MovieListReqParams = { page: 1, language: "ko-KR", region: 410 }) =>
+  popularMovieList: ({ page, language, region }: MovieListReqParams = { page: 1, language: "ko-KR", region: "KR" }) =>
     queryOptions({
       queryKey: [...movieListQueryKeys.popularMovieList(), { page, language, region }],
       queryFn: () => MovieListApi.getPopularMovieList({ page, language, region }),

@@ -14,7 +14,7 @@ export default class MovieListApi {
   static async getPopularMovieList({
     page = 1,
     language = "ko-KR",
-    region = 410,
+    region = "KR",
     ...axiosConfig
   }: MovieListReqParams): Promise<MovieListDTO> {
     return tmdbHttp
