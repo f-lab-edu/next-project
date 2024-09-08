@@ -1,5 +1,14 @@
-export const screenBreakPoints = {
-  sm: "720px",
-  md: "1100px",
-  lg: "1360px",
-};
+import { ObjKey } from "@/shared/lib";
+
+export const screenBreakPointsWithNumber = {
+  sm: 720,
+  md: 1100,
+  lg: 1360,
+} as const;
+
+export const screenBreakPoints = Object.entries(screenBreakPointsWithNumber).reduce(
+  (prev, [key, value]) => {
+    return { ...prev, [key]: `${value}px` };
+  },
+  {} as Record<ObjKey<typeof screenBreakPointsWithNumber>, string>,
+);
