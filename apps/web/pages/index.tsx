@@ -6,6 +6,7 @@ import { popularMovieListTitle } from "@/pages/home";
 import { Col } from "@/shared/ui/col";
 import { Container } from "@/shared/ui/container";
 import { Row } from "@/shared/ui/row";
+import { Text } from "@/shared/ui/text";
 
 export default function Home() {
   return (
@@ -20,14 +21,18 @@ export default function Home() {
       <Container>
         <Row>
           <Col lg={12} md={12} sm={4}>
-            <h2 className={popularMovieListTitle}>트렌드</h2>
+            <Text as="h2" className={popularMovieListTitle} size="xl" weight="bold">
+              트렌드
+            </Text>
             <PopularMovieList />
           </Col>
         </Row>
 
         <Row>
           <Col lg={12} md={12} sm={4}>
-            <h2 className={popularMovieListTitle}>공개 예정작</h2>
+            <Text as="h2" className={popularMovieListTitle} size="xl" weight="bold">
+              공개 예정작
+            </Text>
             <UpcomingMovieList />
           </Col>
         </Row>

@@ -2,6 +2,7 @@ import { AspectRatio } from "@repo/ui/aspect-ratio";
 import Image from "next/image";
 
 import { MovieInfoCard } from "@/shared/ui/movie-info-card";
+import { Text } from "@/shared/ui/text";
 
 import { MovieListItem } from "../../model";
 
@@ -24,19 +25,29 @@ export function PopularMovieCard({ movieInfo }: { movieInfo: MovieListItem }) {
       </MovieInfoCard.Poster>
 
       <MovieInfoCard.Title>
-        <span>{title}</span>
+        <Text lineHeight="short" size="md">
+          {title}
+        </Text>
       </MovieInfoCard.Title>
 
       <MovieInfoCard.Description>
         <div className={popularMovieCardDescriptionWrapper}>
-          <span>{ReleasedYear}</span>
-          <span>&middot;</span>
-          <span>{Region}</span>
+          <Text lineHeight="shorter" size="sm">
+            {ReleasedYear}
+          </Text>
+          <Text lineHeight="shorter" size="sm">
+            &middot;
+          </Text>
+          <Text lineHeight="shorter" size="sm">
+            {Region}
+          </Text>
         </div>
       </MovieInfoCard.Description>
 
       <MovieInfoCard.MetaInfo>
-        <span>평점: {Rating}</span>
+        <Text color="tertiaryText" lineHeight="shorter" size="xs">
+          평점: {Rating}
+        </Text>
       </MovieInfoCard.MetaInfo>
     </MovieInfoCard>
   );
