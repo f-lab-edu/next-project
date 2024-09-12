@@ -1,6 +1,6 @@
-import { MovieListItem } from "./movie-list-item";
+import { MovieListItemDTO } from "./movie-list-item";
 
-export interface MovieListRes {
+export interface MovieListDTO {
   page: number;
-  results: MovieListItem[];
+  results: MovieListItemDTO[];
 }

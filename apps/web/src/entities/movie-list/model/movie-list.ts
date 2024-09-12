@@ -1,11 +1,11 @@
 import { createBaseModel } from "@/shared/lib";
 
-import { MovieListRes } from "../api/response-types/movie-list";
+import { MovieListDTO } from "../api/response-types/movie-list";
 
 import { MovieListItem } from "./movie-list-item";
 
-export class MovieList extends createBaseModel<MovieListRes | null>() {
-  constructor(private popularMovieList: MovieListRes | null) {
+export class MovieList extends createBaseModel<MovieListDTO | null>() {
+  constructor(private popularMovieList: MovieListDTO | null) {
     super(popularMovieList);
   }
 

@@ -1,4 +1,4 @@
-export interface MovieListItem {
+export interface MovieListItemDTO {
   adult: boolean;
   backdropPath: string;
   genreIds: number[];

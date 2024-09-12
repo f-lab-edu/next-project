@@ -1,10 +1,10 @@
 import Head from "next/head";
 
 import { PopularMovieList } from "@/features/get-popular-movie-list";
+import { popularMovieListTitle } from "@/pages/home";
 import { Col } from "@/shared/ui/col";
 import { Container } from "@/shared/ui/container";
 import { Row } from "@/shared/ui/row";
-import { popularMovieListTitle } from "@/view/home";
 
 export default function Home() {
   return (

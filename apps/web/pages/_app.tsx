@@ -1,11 +1,11 @@
-import "@/styles/normalize.css";
-import "@/styles/globals.css";
+import "@/shared/styles/normalize.css";
+import "@/shared/styles/globals.css";
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { useState } from "react";
 
-import { lightThemeClass } from "@/styles/theme";
+import { lightThemeClass } from "@/shared/styles";
 
 import type { AppProps } from "next/app";
 

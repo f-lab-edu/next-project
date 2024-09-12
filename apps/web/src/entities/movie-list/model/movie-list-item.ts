@@ -1,10 +1,10 @@
 import { languageRegions } from "@/shared/config";
 import { createBaseModel } from "@/shared/lib";
 
-import { MovieListItem as MovieListItemRes } from "../api/response-types/movie-list-item";
+import { MovieListItemDTO } from "../api/response-types/movie-list-item";
 
-export class MovieListItem extends createBaseModel<MovieListItemRes>() {
-  constructor(private movieListItem: MovieListItemRes) {
+export class MovieListItem extends createBaseModel<MovieListItemDTO>() {
+  constructor(private movieListItem: MovieListItemDTO) {
     super(movieListItem);
   }
 

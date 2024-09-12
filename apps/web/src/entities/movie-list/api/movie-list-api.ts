@@ -2,7 +2,7 @@ import { tmdbHttp } from "@/shared/api";
 import { camelCaseObjMapper, Nullable } from "@/shared/lib";
 
 import { PopularMovieListReqParams } from "./request-types";
-import { MovieListRes } from "./response-types";
+import { MovieListDTO } from "./response-types";
 
 export default class MovieListApi {
   static baseURL = "movie";
@@ -12,7 +12,7 @@ export default class MovieListApi {
     language = "ko-KR",
     region = 410,
     ...axiosConfig
-  }: PopularMovieListReqParams): Promise<Nullable<MovieListRes>> {
+  }: PopularMovieListReqParams): Promise<Nullable<MovieListDTO>> {
     return tmdbHttp
       .get(`${this.baseURL}/popular`, {
         params: {
