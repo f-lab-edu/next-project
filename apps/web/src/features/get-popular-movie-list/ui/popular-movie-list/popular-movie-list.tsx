@@ -1,21 +1,17 @@
 import { useQuery } from "@tanstack/react-query";
-import { useMemo } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { SwiperOptions } from "swiper/types";
 
 import { PopularMovieCard, movieListQueries } from "@/entities/movie-list";
 import { screenBreakPoints } from "@/shared/styles";
 
+const swiperBreakPoints: SwiperOptions["breakpoints"] = {
+  [parseInt(screenBreakPoints.sm)]: { slidesPerView: 4, spaceBetween: 12 },
+  [parseInt(screenBreakPoints.md)]: { slidesPerView: 5, spaceBetween: 16 },
+};
+
 export function PopularMovieList() {
   const { data: popularMovieList, status: popularMovieListStatus } = useQuery(movieListQueries.popularMovieList());
-
-  const swiperBreakPoints: SwiperOptions["breakpoints"] = useMemo(
-    () => ({
-      [parseInt(screenBreakPoints.sm)]: { slidesPerView: 4, spaceBetween: 12 },
-      [parseInt(screenBreakPoints.md)]: { slidesPerView: 5, spaceBetween: 16 },
-    }),
-    [],
-  );
 
   if (popularMovieListStatus === "pending") {
     return <div>Loading...</div>;
