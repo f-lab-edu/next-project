@@ -2,7 +2,7 @@ import { tmdbHttp } from "@/shared/api";
 import { camelCaseObjMapper } from "@/shared/lib";
 
 import { MovieListReqParams } from "./request-types";
-import { MovieListDTO } from "./response-types";
+import { PopularMovieListDTO } from "./response-types/popular-movie-list";
 import { UpcomingMovieListDTO } from "./response-types/upcoming-movie-list";
 
 const movieBaseURL = "movie";
@@ -14,9 +14,9 @@ export default class MovieListApi {
   static async getPopularMovieList({
     page = 1,
     language = "ko-KR",
-    region = 410,
+    region = "KR",
     ...axiosConfig
-  }: MovieListReqParams): Promise<MovieListDTO> {
+  }: MovieListReqParams): Promise<PopularMovieListDTO> {
     return tmdbHttp
       .get(`${movieBaseURL}/popular`, {
         params: {

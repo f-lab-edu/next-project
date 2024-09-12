@@ -1,6 +1,6 @@
 import { queryOptions } from "@tanstack/react-query";
 
-import { MovieList } from "../model";
+import { PopularMovieList } from "../model/popular-movie-list";
 import { UpcomingMovieList } from "../model/upcoming-movie-list";
 
 import MovieListApi from "./movie-list-api";
@@ -12,11 +12,11 @@ export const movieListQueryKeys = {
 };
 
 export const movieListQueries = {
-  popularMovieList: ({ page, language, region }: MovieListReqParams = { page: 1, language: "ko-KR", region: 410 }) =>
+  popularMovieList: ({ page, language, region }: MovieListReqParams = { page: 1, language: "ko-KR", region: "KR" }) =>
     queryOptions({
       queryKey: [...movieListQueryKeys.popularMovieList(), { page, language, region }],
       queryFn: () => MovieListApi.getPopularMovieList({ page, language, region }),
-      select: (data) => new MovieList(data),
+      select: (data) => new PopularMovieList(data),
     }),
   upcomingMovieList: ({ page, language, region }: MovieListReqParams = { page: 1, language: "ko-KR", region: "KR" }) =>
     queryOptions({
