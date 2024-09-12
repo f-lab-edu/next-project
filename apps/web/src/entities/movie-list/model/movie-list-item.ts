@@ -1,3 +1,5 @@
+import dayjs from "dayjs";
+
 import { languageRegions } from "@/shared/config";
 import { createBaseModel } from "@/shared/lib";
 
@@ -22,5 +24,13 @@ export class MovieListItem extends createBaseModel<MovieListItemDTO>() {
 
   get Region() {
     return languageRegions[this.originalLanguage] ?? this.originalLanguage;
+  }
+
+  get Platform() {
+    return this.video ? "OTT" : "극장";
+  }
+
+  get ReleasedDateDotParsed() {
+    return dayjs(this.ReleasedDate).format("YYYY.MM.DD");
   }
 }

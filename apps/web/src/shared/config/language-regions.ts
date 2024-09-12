@@ -4,4 +4,6 @@ export const languageRegions: Record<string, string> = {
   ja: "일본",
   hi: "인도",
   fr: "프랑스",
+  pt: "포르투갈",
+  cn: "중국",
 };

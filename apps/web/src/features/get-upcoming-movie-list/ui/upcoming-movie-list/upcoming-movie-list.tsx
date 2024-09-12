@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { SwiperOptions } from "swiper/types";
 
-import { PopularMovieCard, movieListQueries } from "@/entities/movie-list";
+import { UpcomingMovieCard, movieListQueries } from "@/entities/movie-list";
 import { screenBreakPoints } from "@/shared/styles";
 
 const swiperBreakPoints: SwiperOptions["breakpoints"] = {
@@ -10,23 +10,23 @@ const swiperBreakPoints: SwiperOptions["breakpoints"] = {
   [parseInt(screenBreakPoints.md)]: { slidesPerView: 5, spaceBetween: 16 },
 };
 
-export function PopularMovieList() {
-  const { data: popularMovieList, status: popularMovieListStatus } = useQuery(movieListQueries.popularMovieList());
+export function UpcomingMovieList() {
+  const { data: upcomingMovieList, status: upcomingMovieListStatus } = useQuery(movieListQueries.upcomingMovieList());
 
-  if (popularMovieListStatus === "pending") {
+  if (upcomingMovieListStatus === "pending") {
     return <div>Loading...</div>;
   }
 
-  if (popularMovieListStatus === "error") {
+  if (upcomingMovieListStatus === "error") {
     return <div>Error...</div>;
   }
 
   return (
     <Swiper breakpoints={swiperBreakPoints} slidesPerView={3} spaceBetween={8}>
-      {popularMovieList.GeneralAudienceMovies?.map((movieInfo) => {
+      {upcomingMovieList.GeneralAudienceMovies?.map((movieInfo) => {
         return (
           <SwiperSlide key={movieInfo.id}>
-            <PopularMovieCard movieInfo={movieInfo} />
+            <UpcomingMovieCard movieInfo={movieInfo} />
           </SwiperSlide>
         );
       })}
