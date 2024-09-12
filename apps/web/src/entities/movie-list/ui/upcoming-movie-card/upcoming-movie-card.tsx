@@ -2,11 +2,11 @@ import { AspectRatio } from "@repo/ui/aspect-ratio";
 import Image from "next/image";
 
 import { MovieInfoCard } from "@/shared/ui/movie-info-card";
+import { Text } from "@/shared/ui/text";
 
 import { MovieListItem } from "../../model";
 
-import { descriptionWrapper, releasedDate } from "./upcoming-movie-card.css";
-
+import { descriptionWrapper } from "./upcoming-movie-card.css";
 export function UpcomingMovieCard({ movieInfo }: { movieInfo: MovieListItem }) {
   const { posterPath, title, ReleasedDateDotParsed, Platform } = movieInfo;
 
@@ -25,13 +25,19 @@ export function UpcomingMovieCard({ movieInfo }: { movieInfo: MovieListItem }) {
       </MovieInfoCard.Poster>
 
       <MovieInfoCard.Title>
-        <span>{title}</span>
+        <Text lineHeight="short" size="md">
+          {title}
+        </Text>
       </MovieInfoCard.Title>
 
       <MovieInfoCard.Description>
         <div className={descriptionWrapper}>
-          <span>{Platform}</span>
-          <span className={releasedDate}>{ReleasedDateDotParsed}</span>
+          <Text lineHeight="shorter" size="sm">
+            {Platform}
+          </Text>
+          <Text color="primary10" lineHeight="shorter" size="sm">
+            {ReleasedDateDotParsed}
+          </Text>
         </div>
       </MovieInfoCard.Description>
     </MovieInfoCard>
