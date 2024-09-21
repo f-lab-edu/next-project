@@ -9,6 +9,7 @@ import { MovieListReqParams } from "./request-types";
 export const movieListQueryKeys = {
   popularMovieList: () => ["popular-movie-list"] as const,
   upcomingMovieList: () => ["upcoming-movie-list"] as const,
+  nowPlayingMovieList: () => ["now-playing-movie-list"] as const,
 };
 
 export const movieListQueries = {

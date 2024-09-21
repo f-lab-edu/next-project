@@ -2,6 +2,7 @@ import { tmdbHttp } from "@/shared/api";
 import { camelCaseObjMapper } from "@/shared/lib";
 
 import { MovieListReqParams } from "./request-types";
+import { NowPlayingMovieListDTO } from "./response-types/now-playing-movie-list";
 import { PopularMovieListDTO } from "./response-types/popular-movie-list";
 import { UpcomingMovieListDTO } from "./response-types/upcoming-movie-list";
 
@@ -37,6 +38,17 @@ export default class MovieListApi {
   ): Promise<UpcomingMovieListDTO> {
     return tmdbHttp
       .get(`${movieBaseURL}/upcoming`, { params: { page, language, region }, ...axiosConfig })
+      .then((res) => camelCaseObjMapper(res.data));
+  }
+
+  /**
+   * 현재 상영중인 영화 목록
+   */
+  static async getNowPlayingMovieList(
+    { page, language, region, ...axiosConfig }: MovieListReqParams = { page: 1, language: "ko-KR", region: "KR" },
+  ): Promise<NowPlayingMovieListDTO> {
+    return tmdbHttp
+      .get(`${movieBaseURL}/now_playing`, { params: { page, language, region }, ...axiosConfig })
       .then((res) => camelCaseObjMapper(res.data));
   }
 }
