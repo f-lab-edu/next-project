@@ -4,6 +4,7 @@ import Head from "next/head";
 
 import { genresQueryKeys } from "@/entities/genres";
 import GenresApi from "@/entities/genres/api/genres-api";
+import { NowPlayingMovieList } from "@/features/get-now-playing-movie-list";
 import { PopularMovieList } from "@/features/get-popular-movie-list";
 import { UpcomingMovieList } from "@/features/get-upcoming-movie-list";
 import { popularMovieListTitle } from "@/pages/home";
@@ -23,6 +24,15 @@ export default function Home({ dehydratedState }: InferGetStaticPropsType<typeof
       </Head>
 
       <Container>
+        <Row>
+          <Col lg={12} md={12} sm={4}>
+            <Text as="h2" className={popularMovieListTitle} size="xl" weight="bold">
+              현재 상영작
+            </Text>
+            <NowPlayingMovieList />
+          </Col>
+        </Row>
+
         <Row>
           <Col lg={12} md={12} sm={4}>
             <Text as="h2" className={popularMovieListTitle} size="xl" weight="bold">
