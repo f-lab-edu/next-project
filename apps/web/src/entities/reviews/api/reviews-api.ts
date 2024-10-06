@@ -1,4 +1,5 @@
 import { localHttp } from "@/shared/api";
+import { camelCaseObjMapper } from "@/shared/lib";
 
 import { NowPlayingMovieListReviewsParams } from "./request-types";
 import { NowPlayingMovieListReviewsDTO } from "./response-types";
@@ -16,13 +17,15 @@ export default class ReviewsApi {
       region: "KR",
     },
   ): Promise<NowPlayingMovieListReviewsDTO> {
-    return localHttp.get(`${reviewsBaseURL}/now-playing-movie-list`, {
-      params: {
-        page,
-        language,
-        region,
-      },
-      ...axiosConfig,
-    });
+    return localHttp
+      .get(`${reviewsBaseURL}/now-playing-movie-list`, {
+        params: {
+          page,
+          language,
+          region,
+        },
+        ...axiosConfig,
+      })
+      .then((res) => camelCaseObjMapper(res.data));
   }
 }
