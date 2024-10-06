@@ -1,6 +1,6 @@
 import { AuthorDetails } from "@/entities/movies";
 
-export interface NowPlayingMovieListReview {
+export interface NowPlayingMovieReview {
   id: string;
   title: string;
   posterPath: string;
@@ -14,5 +14,5 @@ export interface NowPlayingMovieListReview {
 
 export interface NowPlayingMovieListReviewsDTO {
   page: number;
-  results: NowPlayingMovieListReview[];
+  results: NowPlayingMovieReview[];
 }
