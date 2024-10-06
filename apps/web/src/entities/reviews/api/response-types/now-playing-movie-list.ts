@@ -1,4 +1,4 @@
-import { AuthorDetails } from "@/entities/movies";
+import { ReviewAuthorDetails } from "./review-author-details";
 
 export interface NowPlayingMovieReview {
   movieId: number;
@@ -6,7 +6,7 @@ export interface NowPlayingMovieReview {
   posterPath: string;
   id: string;
   author: string;
-  authorDetails: AuthorDetails;
+  authorDetails: ReviewAuthorDetails;
   content: string;
   createdAt: string;
   updatedAt: string;

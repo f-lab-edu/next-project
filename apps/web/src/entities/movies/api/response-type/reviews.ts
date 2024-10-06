@@ -1,9 +1,4 @@
-export interface AuthorDetails {
-  name: string;
-  username: string;
-  avatarPath: string;
-  rating: string;
-}
+import { ReviewAuthorDetails } from "@/entities/reviews";
 
 export interface ReviewsDTO {
   id: number;
@@ -12,7 +7,7 @@ export interface ReviewsDTO {
   totalResults: number;
   results: {
     author: string;
-    authorDetails: AuthorDetails;
+    authorDetails: ReviewAuthorDetails;
     content: string;
     createdAt: string;
     id: string;
