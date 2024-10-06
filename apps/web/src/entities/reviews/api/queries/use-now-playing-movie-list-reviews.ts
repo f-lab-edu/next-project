@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 
-import { NowPlayingMovieListReviews } from "../../models";
+import { NowPlayingMovieListReviewsModel } from "../../models";
 import { NowPlayingMovieListReviewsParams } from "../request-types";
 import ReviewsApi from "../reviews-api";
 
@@ -12,6 +12,6 @@ export const useNowPlayingMovieListReviews = (
   return useQuery({
     queryKey: [...reviewsQueryKeys.nowPlayingMovieList({ language, region, page })],
     queryFn: () => ReviewsApi.getNowPlayingMovieList({ language, region, page }),
-    select: (data) => new NowPlayingMovieListReviews(data),
+    select: (data) => new NowPlayingMovieListReviewsModel(data),
   });
 };

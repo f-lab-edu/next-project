@@ -1,6 +1,6 @@
 import { ReviewAuthorDetails } from "../api";
 
-export class ReviewAuthor {
+export class ReviewAuthorModel {
   name: string;
   userName: string;
   avatarPath: string;

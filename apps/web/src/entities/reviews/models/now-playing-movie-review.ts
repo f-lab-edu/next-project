@@ -1,8 +1,8 @@
 import { ReviewAuthorDetails, NowPlayingMovieReview as TNowPlayingMovieReview } from "../api";
 
-import { ReviewAuthor } from "./review-author";
+import { ReviewAuthorModel } from "./review-author";
 
-export class NowPlayingMovieReview {
+export class NowPlayingMovieReviewModel {
   movieId: number;
   movieTitle: string;
   posterPath: string;
@@ -26,6 +26,6 @@ export class NowPlayingMovieReview {
   }
 
   get AuthorDetails() {
-    return new ReviewAuthor(this.authorDetails);
+    return new ReviewAuthorModel(this.authorDetails);
   }
 }

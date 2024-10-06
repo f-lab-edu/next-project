@@ -2,7 +2,7 @@ import { NextApiRequest, NextApiResponse } from "next";
 
 import MovieListApi from "@/entities/movie-list/api/movie-list-api";
 import MoviesApi from "@/entities/movies/api/movies-api";
-import { NowPlayingMovieReview, NowPlayingMovieListReviewsDTO } from "@/entities/reviews";
+import { NowPlayingMovieReviewModel, NowPlayingMovieListReviewsDTO } from "@/entities/reviews";
 
 export default async function handler(
   req: NextApiRequest,
@@ -36,7 +36,7 @@ export default async function handler(
       return MoviesApi.getMovieReviews({ movieId: id, language: "en-EN" });
     });
 
-    const nowPlayingMovieReviews = (await Promise.allSettled(promises)).reduce<NowPlayingMovieReview[]>(
+    const nowPlayingMovieReviews = (await Promise.allSettled(promises)).reduce<NowPlayingMovieReviewModel[]>(
       (prev, settledResult) => {
         if (settledResult.status === "rejected") return prev;
 
@@ -53,7 +53,7 @@ export default async function handler(
             title: movieInfo.title,
             posterPath: movieInfo.posterPath,
             ...results[results.length - 1],
-          } as NowPlayingMovieReview,
+          } as NowPlayingMovieReviewModel,
         ];
       },
       [],

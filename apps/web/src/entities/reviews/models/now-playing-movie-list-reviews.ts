@@ -1,11 +1,11 @@
 import { NowPlayingMovieListReviewsDTO } from "../api";
 
-import { NowPlayingMovieReview } from "./now-playing-movie-review";
+import { NowPlayingMovieReviewModel } from "./now-playing-movie-review";
 
-export class NowPlayingMovieListReviews {
+export class NowPlayingMovieListReviewsModel {
   constructor(private data: NowPlayingMovieListReviewsDTO) {}
 
   get Reviews() {
-    return this.data.results.map((review) => new NowPlayingMovieReview(review));
+    return this.data.results.map((review) => new NowPlayingMovieReviewModel(review));
   }
 }
