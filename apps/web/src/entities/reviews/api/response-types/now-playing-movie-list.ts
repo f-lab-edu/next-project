@@ -1,9 +1,10 @@
 import { AuthorDetails } from "@/entities/movies";
 
 export interface NowPlayingMovieReview {
-  id: string;
+  movieId: number;
   title: string;
   posterPath: string;
+  id: string;
   author: string;
   authorDetails: AuthorDetails;
   content: string;

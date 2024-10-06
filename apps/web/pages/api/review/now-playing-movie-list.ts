@@ -49,7 +49,7 @@ export default async function handler(
         return [
           ...prev,
           {
-            id,
+            movieId: id,
             title: movieInfo.title,
             posterPath: movieInfo.posterPath,
             ...results[results.length - 1],
