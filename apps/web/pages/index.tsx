@@ -1,9 +1,11 @@
 import { dehydrate, DehydratedState, HydrationBoundary, QueryClient } from "@tanstack/react-query";
-import { GetStaticProps, InferGetStaticPropsType } from "next";
+import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import Head from "next/head";
 
 import { genresQueryKeys } from "@/entities/genres";
 import GenresApi from "@/entities/genres/api/genres-api";
+import { reviewsQueryKeys } from "@/entities/reviews";
+import ReviewsApi from "@/entities/reviews/api/reviews-api";
 import { NowPlayingMovieList } from "@/features/get-now-playing-movie-list";
 import { PopularMovieList } from "@/features/get-popular-movie-list";
 import { UpcomingMovieList } from "@/features/get-upcoming-movie-list";
@@ -13,7 +15,7 @@ import { Container } from "@/shared/ui/container";
 import { Row } from "@/shared/ui/row";
 import { Text } from "@/shared/ui/text";
 
-export default function Home({ dehydratedState }: InferGetStaticPropsType<typeof getStaticProps>) {
+export default function Home({ dehydratedState }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   return (
     <HydrationBoundary state={dehydratedState}>
       <Head>
@@ -55,17 +57,22 @@ export default function Home({ dehydratedState }: InferGetStaticPropsType<typeof
   );
 }
 
-export const getStaticProps = (async () => {
+export const getServerSideProps = (async () => {
   const queryClient = new QueryClient();
+
   await queryClient.prefetchQuery({
     queryKey: [...genresQueryKeys.movieGenres({ language: "ko-KR" })],
-    queryFn: () => GenresApi.getMovieGenres(),
+    queryFn: () => GenresApi.getMovieGenres({ language: "ko-KR" }),
+  });
+
+  await queryClient.prefetchQuery({
+    queryKey: [...reviewsQueryKeys.nowPlayingMovieList({ page: 1, language: "ko-KR", region: "KR" })],
+    queryFn: () => ReviewsApi.getNowPlayingMovieList({ page: 1, language: "ko-KR", region: "KR" }),
   });
 
   return {
     props: {
       dehydratedState: dehydrate(queryClient),
     },
-    revalidate: 10 * 1000 * 60 * 60 * 24,
   };
-}) satisfies GetStaticProps<{ dehydratedState: DehydratedState }>;
+}) satisfies GetServerSideProps<{ dehydratedState: DehydratedState }>;
