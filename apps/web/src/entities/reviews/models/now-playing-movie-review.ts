@@ -1,4 +1,6 @@
-import { NowPlayingMovieReview as TNowPlayingMovieReview } from "../api";
+import { ReviewAuthorDetails, NowPlayingMovieReview as TNowPlayingMovieReview } from "../api";
+
+import { ReviewAuthor } from "./review-author";
 
 export class NowPlayingMovieReview {
   movieId: number;
@@ -9,6 +11,7 @@ export class NowPlayingMovieReview {
   createdAt: string;
   updatedAt: string;
   reviewUrl: string;
+  authorDetails: ReviewAuthorDetails;
 
   constructor(data: TNowPlayingMovieReview) {
     this.movieId = data.movieId;
@@ -19,5 +22,10 @@ export class NowPlayingMovieReview {
     this.createdAt = data.createdAt;
     this.updatedAt = data.updatedAt;
     this.reviewUrl = data.url;
+    this.authorDetails = data.authorDetails;
+  }
+
+  get AuthorDetails() {
+    return new ReviewAuthor(this.authorDetails);
   }
 }
