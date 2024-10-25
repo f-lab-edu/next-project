@@ -1,34 +1,22 @@
-import { NextApiRequest, NextApiResponse } from "next";
+import { z } from "zod";
 
 import MovieListApi from "@/entities/movie-list/api/movie-list-api";
 import MoviesApi from "@/entities/movies/api/movies-api";
-import { NowPlayingMovieReview, NowPlayingMovieListReviewsDTO } from "@/entities/reviews";
+import { NowPlayingMovieReview } from "@/entities/reviews";
+import { withCommonRoute } from "@/shared/api";
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse<NowPlayingMovieListReviewsDTO | { message: string }>,
-) {
-  if (req.method !== "GET") {
-    return res.status(405).send({ message: "This request method is not supported fro this resource." });
-  }
+const querySchema = z.object({
+  page: z.coerce.number(),
+  language: z.string(),
+  region: z.string(),
+});
 
-  const { page, language, region } = req.query;
+export default withCommonRoute(
+  async (req, res) => {
+    const { page, language, region } = req.query as unknown as z.infer<typeof querySchema>;
 
-  if (
-    !page ||
-    !language ||
-    !region ||
-    typeof page !== "string" ||
-    typeof parseInt(page) !== "number" ||
-    typeof language !== "string" ||
-    typeof region !== "string"
-  ) {
-    return res.status(422).send({ message: "Invalid parameters: Your request parameters are incorrect." });
-  }
+    const movieInfoById = new Map<number, { title: string; posterPath: string }>();
 
-  const movieInfoById = new Map<number, { title: string; posterPath: string }>();
-
-  try {
     const nowPlayingMovies = await MovieListApi.getNowPlayingMovieList({ page: Number(page), language, region });
 
     const promises = nowPlayingMovies.results.map(({ id, title, posterPath }) => {
@@ -59,9 +47,8 @@ export default async function handler(
       [],
     );
 
-    res.status(200).send({ page: Number(page), results: nowPlayingMovieReviews });
-  } catch (error) {
-    const message = error instanceof Error ? error.message : "Failed";
-    res.status(500).send({ message });
-  }
-}
+    return res.status(200).send({ page: Number(page), results: nowPlayingMovieReviews });
+  },
+  ["GET"],
+  querySchema,
+);
