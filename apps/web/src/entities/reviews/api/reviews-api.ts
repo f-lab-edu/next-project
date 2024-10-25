@@ -18,7 +18,7 @@ export default class ReviewsApi {
     },
   ): Promise<NowPlayingMovieListReviewsDTO> {
     return localHttp
-      .get(`${reviewsBaseURL}/now-playing-movie-list`, {
+      .get(`${reviewsBaseURL}/now_playing_movie_list`, {
         params: {
           page,
           language,

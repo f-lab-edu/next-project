@@ -6,7 +6,7 @@ import ReviewsApi from "../reviews-api";
 
 import { reviewsQueryKeys } from "./query-keys";
 
-export const useNowPlayingMovieListReviews = (
+export const useNowPlayingMovieListReviewsQuery = (
   { language, region, page }: NowPlayingMovieListReviewsParams = { language: "ko-KR", region: "KR", page: 1 },
 ) => {
   return useQuery({

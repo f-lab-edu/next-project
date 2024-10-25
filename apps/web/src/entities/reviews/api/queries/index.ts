@@ -1,2 +1,2 @@
 export * from "./query-keys";
-export * from "./use-now-playing-movie-list-reviews";
+export * from "./use-now-playing-movie-list-reviews-query";
