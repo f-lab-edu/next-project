@@ -1,2 +1,2 @@
-export * from "./tmdb-instance";
+export * from "./tmdb-http";
 export * from "./with-common-route";
