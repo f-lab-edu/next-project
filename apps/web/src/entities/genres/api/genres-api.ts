@@ -1,10 +1,9 @@
-import { tmdbHttp } from "@/shared/api";
-import { camelCaseObjMapper } from "@/shared/lib";
+import { localHttp } from "@/shared/api";
 
 import { GenresReqParams } from "./request-types";
 import { GenresDTO } from "./response-types";
 
-const genresBaseURL = "genre";
+const genresBaseURL = "genres";
 
 export default class GenresApi {
   /**
@@ -13,8 +12,8 @@ export default class GenresApi {
   static async getMovieGenres(
     { language, ...axiosConfig }: GenresReqParams = { language: "ko-KR" },
   ): Promise<GenresDTO> {
-    return tmdbHttp
+    return localHttp
       .get(`${genresBaseURL}/movie/list`, { params: { language }, ...axiosConfig })
-      .then((res) => camelCaseObjMapper(res.data));
+      .then((res) => res.data);
   }
 }
