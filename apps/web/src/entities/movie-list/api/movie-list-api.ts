@@ -1,12 +1,11 @@
-import { tmdbHttp } from "@/shared/api";
-import { camelCaseObjMapper } from "@/shared/lib";
+import { localHttp } from "@/shared/api";
 
 import { MovieListReqParams } from "./request-types";
 import { NowPlayingMovieListDTO } from "./response-types/now-playing-movie-list";
 import { PopularMovieListDTO } from "./response-types/popular-movie-list";
 import { UpcomingMovieListDTO } from "./response-types/upcoming-movie-list";
 
-const movieBaseURL = "movie";
+const movieListBaseURL = "movie_list";
 
 export default class MovieListApi {
   /**
@@ -18,8 +17,8 @@ export default class MovieListApi {
     region = "KR",
     ...axiosConfig
   }: MovieListReqParams): Promise<PopularMovieListDTO> {
-    return tmdbHttp
-      .get(`${movieBaseURL}/popular`, {
+    return localHttp
+      .get(`${movieListBaseURL}/popular`, {
         params: {
           page,
           language,
@@ -27,7 +26,7 @@ export default class MovieListApi {
         },
         ...axiosConfig,
       })
-      .then((res) => camelCaseObjMapper(res.data));
+      .then((res) => res.data);
   }
 
   /**
@@ -36,9 +35,9 @@ export default class MovieListApi {
   static async getUpcomingMovieList(
     { page, language, region, ...axiosConfig }: MovieListReqParams = { page: 1, language: "ko-KR", region: "KR" },
   ): Promise<UpcomingMovieListDTO> {
-    return tmdbHttp
-      .get(`${movieBaseURL}/upcoming`, { params: { page, language, region }, ...axiosConfig })
-      .then((res) => camelCaseObjMapper(res.data));
+    return localHttp
+      .get(`${movieListBaseURL}/upcoming`, { params: { page, language, region }, ...axiosConfig })
+      .then((res) => res.data);
   }
 
   /**
@@ -47,8 +46,8 @@ export default class MovieListApi {
   static async getNowPlayingMovieList(
     { page, language, region, ...axiosConfig }: MovieListReqParams = { page: 1, language: "ko-KR", region: "KR" },
   ): Promise<NowPlayingMovieListDTO> {
-    return tmdbHttp
-      .get(`${movieBaseURL}/now_playing`, { params: { page, language, region }, ...axiosConfig })
-      .then((res) => camelCaseObjMapper(res.data));
+    return localHttp
+      .get(`${movieListBaseURL}/now_playing`, { params: { page, language, region }, ...axiosConfig })
+      .then((res) => res.data);
   }
 }
