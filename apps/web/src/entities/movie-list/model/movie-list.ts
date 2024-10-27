@@ -1,14 +1,14 @@
-import { Genres } from "@/entities/genres";
+import { GenresModel } from "@/entities/genres";
 import { createBaseModel } from "@/shared/lib";
 
 import { MovieListDTO } from "../api/response-types/movie-list";
 
-import { MovieListItem } from "./movie-list-item";
+import { MovieListItemModel } from "./movie-list-item";
 
-export abstract class MovieList extends createBaseModel<MovieListDTO>() {
+export abstract class MovieListModel extends createBaseModel<MovieListDTO>() {
   constructor(
     private movieList: MovieListDTO,
-    private genresModel?: Genres,
+    private genresModel?: GenresModel,
   ) {
     super(movieList);
   }
@@ -16,6 +16,6 @@ export abstract class MovieList extends createBaseModel<MovieListDTO>() {
   get GeneralAudienceMovies() {
     return this.movieList.results
       .filter(({ adult }) => !adult)
-      .map((item) => new MovieListItem(item, this.genresModel));
+      .map((item) => new MovieListItemModel(item, this.genresModel));
   }
 }

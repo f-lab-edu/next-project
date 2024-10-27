@@ -4,10 +4,10 @@ import Image from "next/image";
 import { MovieInfoCard } from "@/shared/ui/movie-info-card";
 import { Text } from "@/shared/ui/text";
 
-import { MovieListItem } from "../../model";
+import { MovieListItemModel } from "../../model";
 
 import { descriptionWrapper } from "./upcoming-movie-card.css";
-export function UpcomingMovieCard({ movieInfo }: { movieInfo: MovieListItem }) {
+export function UpcomingMovieCard({ movieInfo }: { movieInfo: MovieListItemModel }) {
   const { posterPath, title, ReleasedDateDotParsed, Platform } = movieInfo;
 
   return (

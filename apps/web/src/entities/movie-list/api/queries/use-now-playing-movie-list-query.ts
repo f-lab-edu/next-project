@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 
 import { useMovieGenresQuery } from "@/entities/genres";
 
-import { NowPlayingMovieList } from "../../model/now-playing-movie-list";
+import { NowPlayingMovieListModel } from "../../model/now-playing-movie-list";
 import MovieListApi from "../movie-list-api";
 import { MovieListReqParams } from "../request-types";
 
@@ -16,6 +16,6 @@ export const useNowPlayingMovieListQuery = (
   return useQuery({
     queryKey: [...movieListQueryKeys.nowPlayingMovieList({ page, language, region })],
     queryFn: () => MovieListApi.getNowPlayingMovieList({ page, language, region }),
-    select: (data) => new NowPlayingMovieList(data, movieGenres),
+    select: (data) => new NowPlayingMovieListModel(data, movieGenres),
   });
 };
