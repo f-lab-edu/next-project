@@ -1,12 +1,12 @@
-import { ReviewAuthorDetails } from "./review-author-details";
+import { ReviewAuthorDetailsDTO } from "./review-author-details";
 
-export interface NowPlayingMovieReview {
+export interface NowPlayingMovieReviewDTO {
   movieId: number;
   title: string;
   posterPath: string;
   id: string;
   author: string;
-  authorDetails: ReviewAuthorDetails;
+  authorDetails: ReviewAuthorDetailsDTO;
   content: string;
   createdAt: string;
   updatedAt: string;
@@ -15,5 +15,5 @@ export interface NowPlayingMovieReview {
 
 export interface NowPlayingMovieListReviewsDTO {
   page: number;
-  results: NowPlayingMovieReview[];
+  results: NowPlayingMovieReviewDTO[];
 }

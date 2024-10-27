@@ -1,4 +1,4 @@
-import { ReviewAuthorDetails } from "../api";
+import { ReviewAuthorDetailsDTO } from "../api";
 
 export class ReviewAuthorModel {
   name: string;
@@ -6,7 +6,7 @@ export class ReviewAuthorModel {
   avatarPath: string;
   rating: string;
 
-  constructor(data: ReviewAuthorDetails) {
+  constructor(data: ReviewAuthorDetailsDTO) {
     this.name = data.name;
     this.userName = data.username;
     this.avatarPath = data.avatarPath;

@@ -1,4 +1,4 @@
-import { ReviewAuthorDetails, NowPlayingMovieReview as TNowPlayingMovieReview } from "../api";
+import { ReviewAuthorDetailsDTO, NowPlayingMovieReviewDTO } from "../api";
 
 import { ReviewAuthorModel } from "./review-author";
 
@@ -11,9 +11,9 @@ export class NowPlayingMovieReviewModel {
   createdAt: string;
   updatedAt: string;
   reviewUrl: string;
-  authorDetails: ReviewAuthorDetails;
+  authorDetails: ReviewAuthorDetailsDTO;
 
-  constructor(data: TNowPlayingMovieReview) {
+  constructor(data: NowPlayingMovieReviewDTO) {
     this.movieId = data.movieId;
     this.movieTitle = data.title;
     this.posterPath = data.posterPath;
