@@ -11,7 +11,7 @@ export class NowPlayingMovieReviewModel {
   createdAt: string;
   updatedAt: string;
   reviewUrl: string;
-  authorDetails: ReviewAuthorDetailsDTO;
+  private authorDetails: ReviewAuthorDetailsDTO;
 
   constructor(data: NowPlayingMovieReviewDTO) {
     this.movieId = data.movieId;
