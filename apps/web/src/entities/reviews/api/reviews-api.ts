@@ -1,5 +1,4 @@
 import { localHttp } from "@/shared/api";
-import { camelCaseObjMapper } from "@/shared/lib";
 
 import { NowPlayingMovieListReviewsParams } from "./request-types";
 import { NowPlayingMovieListReviewsDTO } from "./response-types";
@@ -26,6 +25,6 @@ export default class ReviewsApi {
         },
         ...axiosConfig,
       })
-      .then((res) => camelCaseObjMapper(res.data));
+      .then((res) => res.data);
   }
 }
