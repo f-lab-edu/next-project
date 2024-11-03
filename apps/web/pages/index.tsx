@@ -7,6 +7,7 @@ import GenresApi from "@/entities/genres/api/genres-api";
 import { reviewsQueryKeys } from "@/entities/reviews";
 import ReviewsApi from "@/entities/reviews/api/reviews-api";
 import { NowPlayingMovieList } from "@/features/get-now-playing-movie-list";
+import { NowPlayingMovieReviewList } from "@/features/get-now-playing-movie-review-list";
 import { PopularMovieList } from "@/features/get-popular-movie-list";
 import { UpcomingMovieList } from "@/features/get-upcoming-movie-list";
 import { popularMovieListTitle } from "@/pages/home";
@@ -24,6 +25,17 @@ export default function Home({ dehydratedState }: InferGetServerSidePropsType<ty
         <meta content="width=device-width, initial-scale=1" name="viewport" />
         <link href="/favicon.ico" rel="icon" />
       </Head>
+
+      <Container>
+        <Row>
+          <Col lg={12} md={12} sm={4}>
+            <Text as="h2" className={popularMovieListTitle} size="xl" weight="bold">
+              리뷰
+            </Text>
+            <NowPlayingMovieReviewList />
+          </Col>
+        </Row>
+      </Container>
 
       <Container>
         <Row>
