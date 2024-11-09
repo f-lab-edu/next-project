@@ -1,16 +1,17 @@
-import {
-  DiscoveredMovieList,
-  discoveredMovieListQuerySchema,
-  SDiscoveredMovieListReqParams,
-} from "@/entities/discover";
 import { tmdbHttpServer, withCommonRoute } from "@/shared/api";
 import { camelCaseObjMapper } from "@/shared/lib";
 
+import {
+  FilteredMovieList,
+  filteredMovieListQuerySchema,
+  SFilteredMovieListReqParams,
+} from "../../../src/entities/filter";
+
 export default withCommonRoute(
   async (req, res) => {
-    const queries = req.query as unknown as SDiscoveredMovieListReqParams;
+    const queries = req.query as unknown as SFilteredMovieListReqParams;
 
-    const result = await tmdbHttpServer.get<DiscoveredMovieList>("discover/movie", {
+    const result = await tmdbHttpServer.get<FilteredMovieList>("discover/movie", {
       params: {
         certification_country: queries.certificationCountry,
         include_adult: queries.includeAdult,
@@ -36,5 +37,5 @@ export default withCommonRoute(
     return res.status(200).send(camelCaseObjMapper(result.data));
   },
   ["GET"],
-  discoveredMovieListQuerySchema,
+  filteredMovieListQuerySchema,
 );

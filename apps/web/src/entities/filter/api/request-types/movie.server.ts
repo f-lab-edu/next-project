@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-export const discoveredMovieListQuerySchema = z.object({
+export const filteredMovieListQuerySchema = z.object({
   certificationCountry: z.string().optional(),
   includeAdult: z.coerce.boolean().optional(),
   includeVideo: z.coerce.boolean().optional(),
@@ -46,4 +46,4 @@ export const discoveredMovieListQuerySchema = z.object({
  * 6 - TV
  * ```
  */
-export type SDiscoveredMovieListReqParams = z.infer<typeof discoveredMovieListQuerySchema>;
+export type SFilteredMovieListReqParams = z.infer<typeof filteredMovieListQuerySchema>;

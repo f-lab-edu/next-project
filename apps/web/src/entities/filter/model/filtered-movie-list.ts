@@ -1,6 +1,6 @@
 import { MovieListDTO, MovieListModel } from "@/entities/movie-list";
 
-export default class DiscoveredMovieListModel extends MovieListModel {
+export default class FilteredMovieListModel extends MovieListModel {
   constructor(data: MovieListDTO) {
     super(data);
   }

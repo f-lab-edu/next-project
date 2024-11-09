@@ -1,19 +1,19 @@
 import { AxiosRequestConfig } from "axios";
 
-import { DiscoveredMovieListDTO } from "@/entities/discover";
-import { DiscoveredMovieListReqParams } from "@/entities/discover/api/request-types/movie";
+import { FilteredMovieListDTO } from "@/entities/filter";
+import { FilteredMovieListReqParams } from "@/entities/filter/api/request-types/movie";
 import { localHttp } from "@/shared/api";
 
-const discoverBaseURL = "discover";
+const discoverBaseURL = "filter";
 
-export default class DiscoverApi {
+export default class FilterApi {
   /**
    * 영화 필터
    */
   static async getFilterMovies(
-    args: DiscoveredMovieListReqParams,
+    args: FilteredMovieListReqParams,
     axiosRequestConfig?: AxiosRequestConfig,
-  ): Promise<DiscoveredMovieListDTO> {
+  ): Promise<FilteredMovieListDTO> {
     return localHttp
       .get(`${discoverBaseURL}/movie`, {
         params: args,
