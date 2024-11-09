@@ -14,11 +14,9 @@ export default class DiscoverApi {
     args: DiscoveredMovieListReqParams,
     axiosRequestConfig?: AxiosRequestConfig,
   ): Promise<DiscoveredMovieListDTO> {
-    const { page = 1, language = "ko-KR", watchRegion = "KR", ...restArgs } = args;
-
     return localHttp
-      .get(`${discoverBaseURL}/discover/movie`, {
-        params: { page, language, watchRegion, ...restArgs },
+      .get(`${discoverBaseURL}/movie`, {
+        params: args,
         ...axiosRequestConfig,
       })
       .then((res) => res.data);
