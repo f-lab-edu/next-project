@@ -10,7 +10,8 @@ import { NowPlayingMovieList } from "@/features/get-now-playing-movie-list";
 import { NowPlayingMovieReviewList } from "@/features/get-now-playing-movie-review-list";
 import { PopularMovieList } from "@/features/get-popular-movie-list";
 import { UpcomingMovieList } from "@/features/get-upcoming-movie-list";
-import { popularMovieListTitle } from "@/pages/home";
+import { MovieListLinkButton } from "@/features/navigate-page";
+import { movieListTitleWrapper, mainListTitle } from "@/pages/home";
 import { Col } from "@/shared/ui/col";
 import { Container } from "@/shared/ui/container";
 import { Row } from "@/shared/ui/row";
@@ -29,7 +30,7 @@ export default function Home({ dehydratedState }: InferGetServerSidePropsType<ty
       <Container>
         <Row>
           <Col lg={12} md={12} sm={4}>
-            <Text as="h2" className={popularMovieListTitle} size="xl" weight="bold">
+            <Text as="h2" className={mainListTitle} size="xl" weight="bold">
               리뷰
             </Text>
             <NowPlayingMovieReviewList />
@@ -40,16 +41,19 @@ export default function Home({ dehydratedState }: InferGetServerSidePropsType<ty
       <Container>
         <Row>
           <Col lg={12} md={12} sm={4}>
-            <Text as="h2" className={popularMovieListTitle} size="xl" weight="bold">
-              현재 상영작
-            </Text>
+            <div className={movieListTitleWrapper}>
+              <Text as="h2" className={mainListTitle} size="xl" weight="bold">
+                현재 상영작
+              </Text>
+              <MovieListLinkButton href="now-playing" />
+            </div>
             <NowPlayingMovieList />
           </Col>
         </Row>
 
         <Row>
           <Col lg={12} md={12} sm={4}>
-            <Text as="h2" className={popularMovieListTitle} size="xl" weight="bold">
+            <Text as="h2" className={mainListTitle} size="xl" weight="bold">
               트렌드
             </Text>
             <PopularMovieList />
@@ -58,7 +62,7 @@ export default function Home({ dehydratedState }: InferGetServerSidePropsType<ty
 
         <Row>
           <Col lg={12} md={12} sm={4}>
-            <Text as="h2" className={popularMovieListTitle} size="xl" weight="bold">
+            <Text as="h2" className={mainListTitle} size="xl" weight="bold">
               공개 예정작
             </Text>
             <UpcomingMovieList />
