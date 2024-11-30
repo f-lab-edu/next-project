@@ -4,3 +4,4 @@ export * from "./camel-case-obj-mapper";
 export * from "./types";
 export * from "./create-base-model";
 export * from "./use-intersection-observer";
+export * from "./use-infinite-grid-window-virtualizer";
