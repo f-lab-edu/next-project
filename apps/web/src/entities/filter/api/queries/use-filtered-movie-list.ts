@@ -26,7 +26,6 @@ export const useFilteredMovieList = (args: FilteredMovieListReqParams = {}) => {
 
       return lastPageParams + 1;
     },
-    maxPages: 5,
     select: (data) => new FilteredMovieListModel(FilteredMovieListModel.makeFlattenedData(data)),
   });
 };
