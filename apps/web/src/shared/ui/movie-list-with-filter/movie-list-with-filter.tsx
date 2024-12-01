@@ -1,4 +1,3 @@
-import clsx from "clsx";
 import { ForwardedRef, forwardRef } from "react";
 
 import { makePlugOf, OutletCompProps, withOutlet } from "@/shared/hoc";
@@ -10,9 +9,9 @@ const outletNames = ["filter", "content"] as const;
 
 const MovieListWithFilterRoot = forwardRef(
   (props: OutletCompProps<typeof outletNames>, forwardedRef: ForwardedRef<HTMLElement>) => {
-    const { outlets, className } = props;
+    const { outlets, className, ...restProps } = props;
     return (
-      <article className={clsx(className)} ref={forwardedRef}>
+      <article className={className} ref={forwardedRef} {...restProps}>
         <Container>
           <Row>
             <Col lg={3} md={4} sm={2}>
