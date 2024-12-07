@@ -4,9 +4,9 @@ import Image from "next/image";
 import { MovieInfoCard } from "@/shared/ui/movie-info-card";
 import { Text } from "@/shared/ui/text";
 
-import { MovieListItem } from "../../model";
+import { MovieListItemModel } from "../../model";
 
-export function NowPlayingMovieCard({ movieInfo }: { movieInfo: MovieListItem }) {
+export function NowPlayingMovieCard({ movieInfo }: { movieInfo: MovieListItemModel }) {
   const { posterPath, title, Genres } = movieInfo;
 
   return (

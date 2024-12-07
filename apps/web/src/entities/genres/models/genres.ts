@@ -2,7 +2,7 @@ import { createBaseModel } from "@/shared/lib";
 
 import { GenresDTO } from "../api";
 
-export class Genres extends createBaseModel<GenresDTO>() {
+export class GenresModel extends createBaseModel<GenresDTO>() {
   constructor(private genresList: GenresDTO) {
     super(genresList);
   }

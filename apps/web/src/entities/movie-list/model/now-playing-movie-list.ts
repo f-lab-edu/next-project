@@ -1,3 +1,3 @@
-import { MovieList } from "./movie-list";
+import { MovieListModel } from "./movie-list";
 
-export class NowPlayingMovieList extends MovieList {}
+export class NowPlayingMovieListModel extends MovieListModel {}

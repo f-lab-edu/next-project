@@ -1,15 +1,15 @@
 import dayjs from "dayjs";
 
-import { Genres } from "@/entities/genres";
+import { GenresModel } from "@/entities/genres";
 import { languageRegions } from "@/shared/config";
 import { createBaseModel } from "@/shared/lib";
 
 import { MovieListItemDTO } from "../api/response-types/movie-list-item";
 
-export class MovieListItem extends createBaseModel<MovieListItemDTO>() {
+export class MovieListItemModel extends createBaseModel<MovieListItemDTO>() {
   constructor(
     private movieListItem: MovieListItemDTO,
-    private genresModel?: Genres,
+    private genresModel?: GenresModel,
   ) {
     super(movieListItem);
   }

@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 
-import { Genres } from "../../models";
+import { GenresModel } from "../../models";
 import GenresApi from "../genres-api";
 import { GenresReqParams } from "../request-types";
 
@@ -10,7 +10,7 @@ export const useMovieGenresQuery = ({ language }: GenresReqParams = { language: 
   return useQuery({
     queryKey: [...genresQueryKeys.movieGenres({ language })],
     queryFn: () => GenresApi.getMovieGenres({ language }),
-    select: (data) => new Genres(data),
+    select: (data) => new GenresModel(data),
     staleTime: 10 * 1000 * 60,
   });
 };

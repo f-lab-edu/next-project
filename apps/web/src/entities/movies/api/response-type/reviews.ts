@@ -1,4 +1,4 @@
-import { ReviewAuthorDetails } from "@/entities/reviews";
+import { ReviewAuthorDetailsDTO } from "@/entities/reviews";
 
 export interface ReviewsDTO {
   id: number;
@@ -7,7 +7,7 @@ export interface ReviewsDTO {
   totalResults: number;
   results: {
     author: string;
-    authorDetails: ReviewAuthorDetails;
+    authorDetails: ReviewAuthorDetailsDTO;
     content: string;
     createdAt: string;
     id: string;
