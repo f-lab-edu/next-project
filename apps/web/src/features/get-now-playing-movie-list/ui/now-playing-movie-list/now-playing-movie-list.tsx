@@ -12,8 +12,6 @@ const swiperBreakPoints: SwiperOptions["breakpoints"] = {
 export function NowPlayingMovieList() {
   const { data: nowPlayingMovieList, status: nowPlayingMovieListStatus } = useNowPlayingMovieListQuery();
 
-  // useQueries(movieListQueries.nowPlayingMovieList());
-
   if (nowPlayingMovieListStatus === "pending") {
     return <div>Loading...</div>;
   }

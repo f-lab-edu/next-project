@@ -1,6 +1,6 @@
 export interface ReviewAuthorDetailsDTO {
-  name: string;
+  name: string | null;
   username: string;
   avatarPath: string;
-  rating: string;
+  rating: string | null;
 }

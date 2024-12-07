@@ -1,10 +1,10 @@
 import { ReviewAuthorDetailsDTO } from "../api";
 
 export class ReviewAuthorModel {
-  name: string;
-  userName: string;
+  private name: string | null;
+  private userName: string;
   avatarPath: string;
-  rating: string;
+  rating: string | null;
 
   constructor(data: ReviewAuthorDetailsDTO) {
     this.name = data.name;
@@ -13,7 +13,15 @@ export class ReviewAuthorModel {
     this.rating = data.rating;
   }
 
+  get UserName() {
+    return this.name ? this.name : this.userName;
+  }
+
   get UserNameFirstLetter() {
-    return this.userName[0]!;
+    return this.UserName[0];
+  }
+
+  get ScoreMaximumFive() {
+    return this.rating ? String(parseInt(this.rating) / 2) : null;
   }
 }

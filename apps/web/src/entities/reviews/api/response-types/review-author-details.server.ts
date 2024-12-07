@@ -1,6 +1,6 @@
 export interface ReviewAuthorDetails {
-  name: string;
+  name: string | null;
   username: string;
   avatar_path: string;
-  rating: string;
+  rating: string | null;
 }
