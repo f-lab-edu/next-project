@@ -9,6 +9,7 @@
     "./slot": "./src/slot/index.ts",
     "./aspect-ratio": "./src/aspect-ratio/index.ts",
     "./checkbox": "./src/checkbox/index.ts",
+    "./toggle": "./src/toggle/index.ts",
     "./types": "./src/types/index.d.ts"
   },
   "scripts": {
