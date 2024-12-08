@@ -42,6 +42,8 @@ export const CheckboxRoot = forwardRef((props: CheckboxRootProps, forwardedRef: 
   return (
     <CheckboxProvider value={{ checked, disabled }}>
       <Comp
+        role="checkbox"
+        aria-checked={checked}
         className={clsx("base-checkbox-root", className)}
         ref={forwardedRef}
         data-state={dataState}
