@@ -1,5 +1,5 @@
-export * from "./checkbox-root";
-export * from "./checkbox-root/checkbox-root.types";
+export * from "./root";
+export * from "./root/checkbox-root.types";
 
-export * from "./checkbox-indicator";
-export * from "./checkbox-indicator/checkbox-indicator.types";
+export * from "./indicator";
+export * from "./indicator/checkbox-indicator.types";

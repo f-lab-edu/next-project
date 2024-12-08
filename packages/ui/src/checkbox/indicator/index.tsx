@@ -2,7 +2,7 @@ import clsx from "clsx";
 import { ForwardedRef, forwardRef } from "react";
 
 import { Slot } from "../../slot";
-import { useCheckboxContext } from "../checkbox-root";
+import { useCheckboxContext } from "../root";
 
 import { CheckboxIndicatorProps } from "./checkbox-indicator.types";
 
