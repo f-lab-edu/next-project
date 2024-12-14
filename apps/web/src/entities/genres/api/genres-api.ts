@@ -5,7 +5,7 @@ import { GenresDTO } from "./response-types";
 
 const genresBaseURL = "genres";
 
-export default class GenresApi {
+export class GenresApi {
   /**
    * 영화 장르 목록
    */
