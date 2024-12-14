@@ -5,12 +5,16 @@ import { useFilteredMovieList } from "@/entities/filter/api/queries";
 import { genresQueryKeys } from "@/entities/genres";
 import { GenresApi } from "@/entities/genres";
 import { NowPlayingMovieCard } from "@/entities/movie-list";
-import { Filter, FilteredContent, useVirtualizerOptions } from "@/features/filter";
+import { Filter, FilteredContent, FilterProvider, useFilter, useVirtualizerOptions } from "@/features/filter";
 import { useInfiniteGridWindowVirtualizer } from "@/shared/lib";
 import { MovieListWithFilter } from "@/shared/ui/movie-list-with-filter";
 
 function NowPlayingMoveListPage({ dehydratedState }: InferGetServerSidePropsType<typeof getServerSideProps>) {
-  const { data, status, hasNextPage, isFetchingNextPage, fetchNextPage } = useFilteredMovieList();
+  const [filterInfo, dispatch] = useFilter();
+
+  const { data, status, hasNextPage, isFetchingNextPage, fetchNextPage } = useFilteredMovieList({
+    withGenre: Array.from(filterInfo.checkedGenres).join(","),
+  });
 
   const { lanes, overscan } = useVirtualizerOptions();
 
@@ -33,29 +37,31 @@ function NowPlayingMoveListPage({ dehydratedState }: InferGetServerSidePropsType
     return <div>Error...</div>;
   }
 
-  if (status === "pending") {
-    return <div>Loading...</div>;
-  }
-
   return (
     <HydrationBoundary state={dehydratedState}>
       <MovieListWithFilter>
         <MovieListWithFilter.Filter>
-          <Filter />
+          <FilterProvider value={{ ...filterInfo, dispatch }}>
+            <Filter />
+          </FilterProvider>
         </MovieListWithFilter.Filter>
 
         <MovieListWithFilter.Content>
-          <FilteredContent
-            columnVirtualizer={colVirtualizer}
-            fetchNextPage={() => fetchNextPage()}
-            hasNext={hasNextPage}
-            isFetchingNextPage={isFetchingNextPage}
-            itemComp={NowPlayingMovieCard}
-            lanes={lanes}
-            movieList={data}
-            ref={scrollContainer}
-            rowVirtualizer={rowVirtualizer}
-          />
+          {status === "pending" ? (
+            <div>Loading...</div>
+          ) : (
+            <FilteredContent
+              columnVirtualizer={colVirtualizer}
+              fetchNextPage={() => fetchNextPage()}
+              hasNext={hasNextPage}
+              isFetchingNextPage={isFetchingNextPage}
+              itemComp={NowPlayingMovieCard}
+              lanes={lanes}
+              movieList={data}
+              ref={scrollContainer}
+              rowVirtualizer={rowVirtualizer}
+            />
+          )}
         </MovieListWithFilter.Content>
       </MovieListWithFilter>
     </HydrationBoundary>
