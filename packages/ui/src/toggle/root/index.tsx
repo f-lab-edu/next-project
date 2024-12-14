@@ -2,6 +2,7 @@ import clsx from "clsx";
 import { ForwardedRef, forwardRef } from "react";
 
 import { Slot } from "../../slot";
+import { Slottable } from "../../slot";
 import { useControllableState } from "../../utils";
 
 import { ToggleRootProps } from "./toggle-root.types";
@@ -9,6 +10,7 @@ import { ToggleRootProps } from "./toggle-root.types";
 export const ToggleRoot = forwardRef((props: ToggleRootProps, forwardedRef: ForwardedRef<HTMLButtonElement>) => {
   const {
     asChild,
+    children,
     id,
     className,
     name,
@@ -17,6 +19,7 @@ export const ToggleRoot = forwardRef((props: ToggleRootProps, forwardedRef: Forw
     disabled,
     required,
     onToggleChanged,
+    style,
     ...restToggleRootProps
   } = props;
 
@@ -43,7 +46,7 @@ export const ToggleRoot = forwardRef((props: ToggleRootProps, forwardedRef: Forw
       data-state={dataState}
       data-disabled={disabled ? "" : undefined}
       onClick={handleToggleClick}
-      style={{ position: "relative" }}
+      style={{ ...style, position: "relative" }}
       {...restToggleRootProps}
     >
       <input
@@ -55,8 +58,9 @@ export const ToggleRoot = forwardRef((props: ToggleRootProps, forwardedRef: Forw
         disabled={disabled}
         required={required}
         data-disabled={disabled ? "" : undefined}
-        style={{ opacity: 0, position: "relative", inset: 0 }}
+        style={{ opacity: 0, position: "absolute", inset: 0, cursor: "inherit" }}
       />
+      <Slottable>{children}</Slottable>
     </Comp>
   );
 });
