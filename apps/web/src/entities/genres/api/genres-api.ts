@@ -9,9 +9,7 @@ export class GenresApi {
   /**
    * 영화 장르 목록
    */
-  static async getMovieGenres(
-    { language, ...axiosConfig }: GenresReqParams = { language: "ko-KR" },
-  ): Promise<GenresDTO> {
+  static async getMovieGenres({ language, ...axiosConfig }: GenresReqParams): Promise<GenresDTO> {
     return localHttp
       .get(`${genresBaseURL}/movie/list`, { params: { language }, ...axiosConfig })
       .then((res) => res.data);

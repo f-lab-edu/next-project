@@ -1,11 +1,7 @@
-import { createBaseModel } from "@/shared/lib";
-
 import { GenresDTO } from "../api";
 
-export class GenresModel extends createBaseModel<GenresDTO>() {
-  constructor(private genresList: GenresDTO) {
-    super(genresList);
-  }
+export class GenresModel {
+  constructor(private genresList: GenresDTO) {}
 
   get GenresList() {
     return this.genresList.genres.reduce((prev, { id, name }) => {

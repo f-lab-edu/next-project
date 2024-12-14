@@ -1,5 +1,6 @@
 import { GenresReqParams } from "../request-types";
 
 export const genresQueryKeys = {
-  movieGenres: ({ language }: GenresReqParams) => ["movie-genres", { language }] as const,
+  all: ["genres"] as const,
+  movieGenres: ({ language }: GenresReqParams) => [...genresQueryKeys.all, "movie-genres", { language }] as const,
 };

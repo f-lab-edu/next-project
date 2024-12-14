@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 
 import { GenresModel } from "../../models";
-import GenresApi from "../genres-api";
+import { GenresApi } from "../genres-api";
 import { GenresReqParams } from "../request-types";
 
 import { genresQueryKeys } from "./query-keys";
