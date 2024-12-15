@@ -3,7 +3,7 @@ import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import Head from "next/head";
 
 import { genresQueryKeys } from "@/entities/genres";
-import GenresApi from "@/entities/genres/api/genres-api";
+import { GenresApi } from "@/entities/genres";
 import { reviewsQueryKeys } from "@/entities/reviews";
 import ReviewsApi from "@/entities/reviews/api/reviews-api";
 import { NowPlayingMovieList } from "@/features/get-now-playing-movie-list";
