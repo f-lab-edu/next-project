@@ -49,7 +49,10 @@ export const FilteredContent = forwardRef((props: FilteredContentProps, forwarde
                   <div
                     key={column.key}
                     style={{
-                      width: `${100 / lanes}%`,
+                      maxWidth: `${100 / lanes}%`,
+                      //https://stackoverflow.com/questions/38223879/white-space-nowrap-breaks-flexbox-layout
+                      minWidth: 0,
+                      flex: "1 0 0",
                     }}
                   >
                     {currentMovieItem ? <ItemComp movieInfo={currentMovieItem} /> : null}
