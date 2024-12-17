@@ -68,7 +68,7 @@ export const withOutlet = <T extends readonly string[]>(
         }
       }, {}) as OutletComponents<T>;
 
-      return <>{createElement(Comp, { outlets, ref: forwardedRef })}</>;
+      return <>{createElement(Comp, { outlets, ref: forwardedRef, ...props })}</>;
     },
   );
   OutletComp.displayName = "Outlet";

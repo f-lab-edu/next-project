@@ -1,18 +1,66 @@
-import clsx from "clsx";
 import { ForwardedRef, forwardRef } from "react";
 
-import { filterContentContainer } from "@/features/filter/ui/filtered-content/filtered-content.css";
 import { FilteredContentProps } from "@/features/filter/ui/filtered-content/filtered-content.types";
+import { globalThemeVars } from "@/shared/styles";
+import { InfiniteScroll } from "@/shared/ui/infinite-scroll";
 
 export const FilteredContent = forwardRef((props: FilteredContentProps, forwardedRef: ForwardedRef<HTMLElement>) => {
-  const { movieList, itemComp: ItemComp, className } = props;
+  const {
+    movieList,
+    itemComp: ItemComp,
+    className,
+    rowVirtualizer,
+    columnVirtualizer,
+    fetchNextPage,
+    isFetchingNextPage,
+    hasNext,
+    lanes,
+  } = props;
 
   return (
-    <section className={clsx(className, filterContentContainer)} ref={forwardedRef}>
-      {movieList.GeneralAudienceMovies.map((movie) => (
-        <ItemComp key={movie.id} movieInfo={movie} />
-      ))}
-    </section>
+    <InfiniteScroll fetchNextPage={fetchNextPage} hasNextPage={hasNext} isFetchNextPage={isFetchingNextPage}>
+      <section
+        className={className}
+        ref={forwardedRef}
+        style={{
+          minHeight: `${rowVirtualizer.getTotalSize()}px`,
+          position: "relative",
+        }}
+      >
+        {rowVirtualizer.getVirtualItems().map((virtualRow) => {
+          return (
+            <div
+              data-index={virtualRow.index}
+              key={virtualRow.key}
+              ref={rowVirtualizer.measureElement}
+              style={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                transform: `translateY(${virtualRow.start - rowVirtualizer.options.scrollMargin}px)`,
+                display: "flex",
+                width: "100%",
+                gap: `${globalThemeVars.space["4"]}`,
+              }}
+            >
+              {columnVirtualizer.getVirtualItems().map((column) => {
+                const currentMovieItem = movieList.GeneralAudienceMovies[virtualRow.index * lanes + column.index];
+                return (
+                  <div
+                    key={column.key}
+                    style={{
+                      width: `${100 / lanes}%`,
+                    }}
+                  >
+                    {currentMovieItem ? <ItemComp movieInfo={currentMovieItem} /> : null}
+                  </div>
+                );
+              })}
+            </div>
+          );
+        })}
+      </section>
+    </InfiniteScroll>
   );
 });
 
