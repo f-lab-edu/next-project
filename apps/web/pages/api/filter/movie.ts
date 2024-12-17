@@ -26,7 +26,7 @@ export default withCommonRoute(
         "vote_count.gte": queries.voteCountGte,
         "vote_count.lte": queries.voteCountLte,
         watch_region: queries.watchRegion,
-        with_genre: queries.withGenre,
+        with_genres: queries.withGenre,
         with_release_type: queries.withReleaseType && queries.withReleaseType.join("|"),
         "with_run_time.gte": queries.withRunTimeGte,
         "with_run_time.lte": queries.withRunTimeLte,
