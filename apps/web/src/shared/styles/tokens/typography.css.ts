@@ -36,7 +36,7 @@ export const fontSizes = {
    */
   md: "1rem",
   /**
-   * @description `1.125rem` // `16 * 1.125 = 20px`
+   * @description `1.125rem` // `16 * 1.125 = 18px`
    */
   lg: "1.125rem",
   /**
@@ -100,13 +100,37 @@ export const lineHeights = {
   base: "1.5",
   tall: "1.625",
   taller: "2",
+  /**
+   * @description `0.75rem` // `16 * 0.75 = 12px`
+   */
   "3": "0.75rem",
+  /**
+   * @description `1rem` // `16 * 1 = 16px`
+   */
   "4": "1rem",
+  /**
+   * @description `1.25rem` // `16 * 1.25 = 20px`
+   */
   "5": "1.25rem",
+  /**
+   * @description `1.5rem` // `16 * 1.5 = 24px`
+   */
   "6": "1.5rem",
+  /**
+   * @description `1.75rem` // `16 * 1.75 = 28px`
+   */
   "7": "1.75rem",
+  /**
+   * @description `2rem` // `16 * 2 = 32px`
+   */
   "8": "2rem",
+  /**
+   * @description `2.25rem` // `16 * 2.25 = 36px`
+   */
   "9": "2.25rem",
+  /**
+   *  @description `2.25rem` // `16 * 2.5 = 40px`
+   */
   "10": "2.5rem",
 };
 
