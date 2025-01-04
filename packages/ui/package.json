@@ -8,10 +8,13 @@
     "./code": "./src/code.tsx",
     "./slot": "./src/slot/index.ts",
     "./aspect-ratio": "./src/aspect-ratio/index.ts",
-    "./types": "./src/types/index.d.ts"
+    "./checkbox": "./src/checkbox/index.ts",
+    "./toggle": "./src/toggle/index.ts",
+    "./types": "./src/types/index.d.ts",
+    "./utils": "./src/utils/index.ts"
   },
   "scripts": {
-    "lint": "eslint . --max-warnings 0",
+    "lint": "eslint --fix --max-warnings 0",
     "generate:component": "turbo gen react-component"
   },
   "devDependencies": {

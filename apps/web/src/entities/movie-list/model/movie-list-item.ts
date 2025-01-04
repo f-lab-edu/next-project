@@ -1,12 +1,16 @@
 import dayjs from "dayjs";
 
+import { GenresModel } from "@/entities/genres";
 import { languageRegions } from "@/shared/config";
 import { createBaseModel } from "@/shared/lib";
 
 import { MovieListItemDTO } from "../api/response-types/movie-list-item";
 
-export class MovieListItem extends createBaseModel<MovieListItemDTO>() {
-  constructor(private movieListItem: MovieListItemDTO) {
+export class MovieListItemModel extends createBaseModel<MovieListItemDTO>() {
+  constructor(
+    private movieListItem: MovieListItemDTO,
+    private genresModel?: GenresModel,
+  ) {
     super(movieListItem);
   }
 
@@ -32,5 +36,9 @@ export class MovieListItem extends createBaseModel<MovieListItemDTO>() {
 
   get ReleasedDateDotParsed() {
     return dayjs(this.ReleasedDate).format("YYYY.MM.DD");
+  }
+
+  get Genres() {
+    return this.genresModel ? this.genreIds.map((id) => this.genresModel!.GenresList.get(id)!.name)[0]! : "";
   }
 }

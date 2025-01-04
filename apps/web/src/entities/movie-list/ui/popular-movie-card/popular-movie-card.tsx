@@ -4,11 +4,11 @@ import Image from "next/image";
 import { MovieInfoCard } from "@/shared/ui/movie-info-card";
 import { Text } from "@/shared/ui/text";
 
-import { MovieListItem } from "../../model";
+import { MovieListItemModel } from "../../model";
 
 import { popularMovieCardDescriptionWrapper } from "./popular-movie-card.css";
 
-export function PopularMovieCard({ movieInfo }: { movieInfo: MovieListItem }) {
+export function PopularMovieCard({ movieInfo }: { movieInfo: MovieListItemModel }) {
   const { posterPath, title, ReleasedYear, Rating, Region } = movieInfo;
   return (
     <MovieInfoCard>

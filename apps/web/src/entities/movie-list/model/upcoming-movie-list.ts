@@ -1,8 +1,8 @@
 import { UpcomingMovieListDTO } from "../api/response-types/upcoming-movie-list";
 
-import { MovieList } from "./movie-list";
+import { MovieListModel } from "./movie-list";
 
-export class UpcomingMovieList extends MovieList {
+export class UpcomingMovieListModel extends MovieListModel {
   public rangeStartDate: string;
   public rangeEndData: string;
 

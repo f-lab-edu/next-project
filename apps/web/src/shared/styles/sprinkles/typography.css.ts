@@ -2,7 +2,7 @@ import { defineProperties } from "@vanilla-extract/sprinkles";
 
 import { globalThemeVars, themeColorContract } from "../theme";
 
-import { mediaQueryCondition } from "./\bmedia-query-condition";
+import { mediaQueryCondition } from "./media-query-condition";
 
 export const typographyStyles = defineProperties({
   ...mediaQueryCondition,

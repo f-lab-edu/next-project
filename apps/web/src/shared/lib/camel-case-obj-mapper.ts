@@ -1,6 +1,7 @@
 import { snakeToCamelCase } from "./snake-to-camel-case";
 
-export const camelCaseObjMapper = <T extends Record<string, unknown>>(model: T) => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const camelCaseObjMapper = <T extends Record<string, any>>(model: T) => {
   if (!model) return null;
 
   const newCamelCaseModel: Record<string, unknown> = {};
