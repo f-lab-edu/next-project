@@ -2,6 +2,9 @@
   "name": "web",
   "version": "0.1.0",
   "private": true,
+  "files": [
+    "./.next"
+  ],
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -12,6 +15,7 @@
     "@repo/ui": "workspace:*",
     "@tanstack/react-query": "^5.52.0",
     "@tanstack/react-virtual": "^3.10.9",
+    "@vanilla-extract/next-plugin": "^2.4.8",
     "axios": "^1.7.4",
     "clsx": "*",
     "dayjs": "^1.11.13",
@@ -32,7 +36,6 @@
     "@vanilla-extract/css": "*",
     "@vanilla-extract/css-utils": "*",
     "@vanilla-extract/dynamic": "*",
-    "@vanilla-extract/next-plugin": "*",
     "@vanilla-extract/recipes": "*",
     "@vanilla-extract/sprinkles": "*",
     "eslint": "^8",

@@ -10,22 +10,19 @@ WORKDIR /next-project
 COPY . .
 
 RUN pnpm install
-RUN pnpm build --filter=web
+RUN pnpm run -r build
+RUN pnpm deploy --filter=web --prod /web
+
+# # web
+FROM base
 
 EXPOSE 3000
 
-CMD ["pnpm", "run", "--filter=web", "start"]
+WORKDIR /web
 
-# # web
-# FROM base
+COPY --from=build /web /web
 
-# WORKDIR /app
-
-# COPY --from=build /app/node_modules /app/node_modules
-# COPY --from=build /app/.next /app/.next
-# COPY --from=build /app /app
-
-# CMD ["pnpm", "start"]
+CMD ["pnpm", "start"]
 
 
 
