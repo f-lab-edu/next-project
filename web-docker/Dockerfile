@@ -9,8 +9,8 @@ FROM base AS build
 WORKDIR /next-project
 COPY . .
 
-RUN pnpm install
-RUN pnpm run -r build
+RUN pnpm --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
+RUN pnpm run build
 RUN pnpm deploy --filter=web --prod /web
 
 # web
