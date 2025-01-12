@@ -8,12 +8,9 @@ FROM base AS build
 
 WORKDIR /next-project
 
-COPY ./package.json ./pnpm-lock.yaml ./
-RUN pnpm --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
-
 COPY . .
-RUN pnpm --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
 
+RUN pnpm --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
 RUN pnpm run build
 RUN pnpm deploy --filter=web --prod /web
 
