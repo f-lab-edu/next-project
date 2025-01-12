@@ -13,7 +13,7 @@ RUN pnpm install
 RUN pnpm run -r build
 RUN pnpm deploy --filter=web --prod /web
 
-# # web
+# web
 FROM base
 
 EXPOSE 3000

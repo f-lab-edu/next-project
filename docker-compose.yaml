@@ -1,0 +1,25 @@
+version: "3"
+
+services:
+  reverse-proxy:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    image: reverse-proxy
+    container_name: reverse-proxy
+    ports:
+      - "80:80"
+    restart: always
+    depends_on:
+      - web
+    
+
+  web:
+    build:
+      context: .
+      dockerfile: web-docker/Dockerfile
+    image: web-docker
+    container_name: web-docker
+    restart: always
+    stdin_open: true
+    tty: true
