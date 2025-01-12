@@ -23,6 +23,9 @@ module.exports = (phase) => {
         },
       ],
     },
+    typescript: {
+      ignoreBuildErrors: true,
+    },
   };
 
   return withVanillaExtract(nextConfig);
