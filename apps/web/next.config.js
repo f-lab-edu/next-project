@@ -10,6 +10,8 @@ module.exports = (phase) => {
 
   const [protocol, hostname] = process.env.NEXT_PUBLIC_TMDB_RESOURCE_BASE_URL.split("://");
 
+  console.log("~~~~~~~~~~~~~~~~~~~~", protocol, hostname);
+
   /** @type {import('next').NextConfig} */
   const nextConfig = {
     reactStrictMode: true,
