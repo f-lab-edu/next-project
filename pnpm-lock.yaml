@@ -60,12 +60,30 @@ importers:
       '@tanstack/react-query':
         specifier: ^5.52.0
         version: 5.52.0(react@18.2.0)
+      '@tanstack/react-query-devtools':
+        specifier: ^5.64.0
+        version: 5.64.0(@tanstack/react-query@5.52.0)(react@18.2.0)
       '@tanstack/react-virtual':
         specifier: ^3.10.9
         version: 3.10.9(react-dom@18.3.1)(react@18.2.0)
+      '@vanilla-extract/css':
+        specifier: '*'
+        version: 1.15.3
+      '@vanilla-extract/css-utils':
+        specifier: '*'
+        version: 0.1.4
+      '@vanilla-extract/dynamic':
+        specifier: '*'
+        version: 2.1.1
       '@vanilla-extract/next-plugin':
         specifier: ^2.4.8
         version: 2.4.8(@types/node@20.11.24)(next@14.2.5)(webpack@5.93.0)
+      '@vanilla-extract/recipes':
+        specifier: '*'
+        version: 0.5.3(@vanilla-extract/css@1.15.3)
+      '@vanilla-extract/sprinkles':
+        specifier: '*'
+        version: 1.6.2(@vanilla-extract/css@1.15.3)
       axios:
         specifier: ^1.7.4
         version: 1.7.4
@@ -100,9 +118,6 @@ importers:
       '@tanstack/eslint-plugin-query':
         specifier: ^5.52.0
         version: 5.52.0(eslint@8.57.0)(typescript@5.7.2)
-      '@tanstack/react-query-devtools':
-        specifier: ^5.52.1
-        version: 5.52.1(@tanstack/react-query@5.52.0)(react@18.2.0)
       '@types/node':
         specifier: ^20
         version: 20.11.24
@@ -112,21 +127,6 @@ importers:
       '@types/react-dom':
         specifier: ^18
         version: 18.2.19
-      '@vanilla-extract/css':
-        specifier: '*'
-        version: 1.15.3
-      '@vanilla-extract/css-utils':
-        specifier: '*'
-        version: 0.1.4
-      '@vanilla-extract/dynamic':
-        specifier: '*'
-        version: 2.1.1
-      '@vanilla-extract/recipes':
-        specifier: '*'
-        version: 0.5.3(@vanilla-extract/css@1.15.3)
-      '@vanilla-extract/sprinkles':
-        specifier: '*'
-        version: 1.6.2(@vanilla-extract/css@1.15.3)
       eslint:
         specifier: ^8
         version: 8.57.0
@@ -1384,21 +1384,22 @@ packages:
 
   /@tanstack/query-core@5.52.0:
     resolution: {integrity: sha512-U1DOEgltjUwalN6uWYTewSnA14b+tE7lSylOiASKCAO61ENJeCq9VVD/TXHA6O5u9+6v5+UgGYBSccTKDoyMqw==}
+    dev: false
 
-  /@tanstack/query-devtools@5.51.16:
-    resolution: {integrity: sha512-ajwuq4WnkNCMj/Hy3KR8d3RtZ6PSKc1dD2vs2T408MdjgKzQ3klVoL6zDgVO7X+5jlb5zfgcO3thh4ojPhfIaw==}
-    dev: true
+  /@tanstack/query-devtools@5.62.16:
+    resolution: {integrity: sha512-3ff6UBJr0H3nIhfLSl9911rvKqXf0u4B58jl0uYdDWLqPk9pCvYIbxC35cGxK2+8INl4IaFVUHb/IdgWrNkg3Q==}
+    dev: false
 
-  /@tanstack/react-query-devtools@5.52.1(@tanstack/react-query@5.52.0)(react@18.2.0):
-    resolution: {integrity: sha512-6KwSm9vcIIK26osQJtT52Gyccz/DyHPT216B7kt4ihg22G2rtGZ7sCXYQO25XEHyVwVingwHdZ7auj+ydgg4Zg==}
+  /@tanstack/react-query-devtools@5.64.0(@tanstack/react-query@5.52.0)(react@18.2.0):
+    resolution: {integrity: sha512-XORJjlbcBwPJaNbWBfZudaVVMi5TtlN1lYkHYU71hlG2c/jYpceO2yfAhZfgeyTNtqmTJ7jXOitgoGqtunsBAA==}
     peerDependencies:
-      '@tanstack/react-query': ^5.52.1
+      '@tanstack/react-query': ^5.64.0
       react: ^18 || ^19
     dependencies:
-      '@tanstack/query-devtools': 5.51.16
+      '@tanstack/query-devtools': 5.62.16
       '@tanstack/react-query': 5.52.0(react@18.2.0)
       react: 18.2.0
-    dev: true
+    dev: false
 
   /@tanstack/react-query@5.52.0(react@18.2.0):
     resolution: {integrity: sha512-T8tLZdPEopSD3A1EBZ/sq7WkI76pKLKKiT82F486K8wf26EPgYCdeiSnJfuayssdQjWwLQMQVl/ROUBNmlWgCQ==}
@@ -1407,6 +1408,7 @@ packages:
     dependencies:
       '@tanstack/query-core': 5.52.0
       react: 18.2.0
+    dev: false
 
   /@tanstack/react-virtual@3.10.9(react-dom@18.3.1)(react@18.2.0):
     resolution: {integrity: sha512-OXO2uBjFqA4Ibr2O3y0YMnkrRWGVNqcvHQXmGvMu6IK8chZl3PrDxFXdGZ2iZkSrKh3/qUYoFqYe+Rx23RoU0g==}
@@ -2023,7 +2025,6 @@ packages:
 
   /@vanilla-extract/css-utils@0.1.4:
     resolution: {integrity: sha512-3WRxMGa/VQaL32jZqRUpnnoVFSws5iPIUpQr+XlT4jXhtMeKYcA20rFK2k2Amkg04sqrO84A8hNMeABWZQesEg==}
-    dev: true
 
   /@vanilla-extract/css@1.15.3:
     resolution: {integrity: sha512-mxoskDAxdQAspbkmQRxBvolUi1u1jnyy9WZGm+GeH8V2wwhEvndzl1QoK7w8JfA0WFevTxbev5d+i+xACZlPhA==}
@@ -2041,7 +2042,6 @@ packages:
       picocolors: 1.0.1
     transitivePeerDependencies:
       - babel-plugin-macros
-    dev: true
 
   /@vanilla-extract/css@1.17.0:
     resolution: {integrity: sha512-W6FqVFDD+C71ZlKsuj0MxOXSvHb1tvQ9h/+79aYfi097wLsALrnnBzd0by8C///iurrpQ3S+SH74lXd7Lr9MvA==}
@@ -2066,7 +2066,6 @@ packages:
     resolution: {integrity: sha512-iqf736036ujEIKsIq28UsBEMaLC2vR2DhwKyrG3NDb/fRy9qL9FKl1TqTtBV4daU30Uh3saeik4vRzN8bzQMbw==}
     dependencies:
       '@vanilla-extract/private': 1.0.5
-    dev: true
 
   /@vanilla-extract/integration@7.1.12(@types/node@20.11.24):
     resolution: {integrity: sha512-71HFjnfL7qXM3hqyk7z9c8zrudfO9Sut6IhSmH8IKwmLk/tIMFIL86L6nYpItfUFUa/mrER6YUQPp/SfwjRvkw==}
@@ -2168,7 +2167,6 @@ packages:
 
   /@vanilla-extract/private@1.0.5:
     resolution: {integrity: sha512-6YXeOEKYTA3UV+RC8DeAjFk+/okoNz/h88R+McnzA2zpaVqTR/Ep+vszkWYlGBcMNO7vEkqbq5nT/JMMvhi+tw==}
-    dev: true
 
   /@vanilla-extract/private@1.0.6:
     resolution: {integrity: sha512-ytsG/JLweEjw7DBuZ/0JCN4WAQgM9erfSTdS1NQY778hFQSZ6cfCDEZZ0sgVm4k54uNz6ImKB33AYvSR//fjxw==}
@@ -2180,7 +2178,6 @@ packages:
       '@vanilla-extract/css': ^1.0.0
     dependencies:
       '@vanilla-extract/css': 1.15.3
-    dev: true
 
   /@vanilla-extract/sprinkles@1.6.2(@vanilla-extract/css@1.15.3):
     resolution: {integrity: sha512-SZdrxzpAFIpRImqY/N54wODYyn6swuz+Lerd7Y1ZX5/148e6J9smpsfBf/iQpmGo17OS9b+AdYBOn7OF9cn/vA==}
@@ -2188,7 +2185,6 @@ packages:
       '@vanilla-extract/css': ^1.0.0
     dependencies:
       '@vanilla-extract/css': 1.15.3
-    dev: true
 
   /@vanilla-extract/webpack-plugin@2.3.11(@types/node@20.11.24)(webpack@5.93.0):
     resolution: {integrity: sha512-DHHYZ3yT84FmDCgnIcgeB7gA3XtNbiHfk2/e3ugoWutKSakW6+zz0qVPV+HX7YVv9o+dlrFe0I17bCBkNaOYlA==}

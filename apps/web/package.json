@@ -14,6 +14,7 @@
   "dependencies": {
     "@repo/ui": "workspace:*",
     "@tanstack/react-query": "^5.52.0",
+    "@tanstack/react-query-devtools": "^5.64.0",
     "@tanstack/react-virtual": "^3.10.9",
     "@vanilla-extract/next-plugin": "^2.4.8",
     "axios": "^1.7.4",
@@ -23,21 +24,20 @@
     "react": "^18",
     "react-dom": "^18",
     "swiper": "^11.1.12",
-    "zod": "^3.23.8"
+    "zod": "^3.23.8",
+    "@vanilla-extract/dynamic": "*",
+    "@vanilla-extract/css": "*",
+    "@vanilla-extract/css-utils": "*",
+    "@vanilla-extract/recipes": "*",
+    "@vanilla-extract/sprinkles": "*"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:^",
     "@repo/typescript-config": "workspace:^",
     "@tanstack/eslint-plugin-query": "^5.52.0",
-    "@tanstack/react-query-devtools": "^5.52.1",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
-    "@vanilla-extract/css": "*",
-    "@vanilla-extract/css-utils": "*",
-    "@vanilla-extract/dynamic": "*",
-    "@vanilla-extract/recipes": "*",
-    "@vanilla-extract/sprinkles": "*",
     "eslint": "^8",
     "eslint-config-next": "14.2.5",
     "typescript": "^5.7.2"
