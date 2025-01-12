@@ -20,6 +20,8 @@ services:
       dockerfile: web-docker/Dockerfile
     image: web-docker
     container_name: web-docker
+    ports:
+      - "3000:3000"
     restart: always
     stdin_open: true
     tty: true
