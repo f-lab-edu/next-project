@@ -18,13 +18,6 @@ module.exports = (phase) => {
     transpilePackages: ["@repo/ui"],
     images: {
       domains: ["image.tmdb.org"],
-      remotePatterns: [
-        {
-          protocol: "https",
-          hostname: "image.tmdb.org",
-          pathname: "/**",
-        },
-      ],
     },
     typescript: {
       ignoreBuildErrors: true,
