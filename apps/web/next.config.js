@@ -17,11 +17,11 @@ module.exports = (phase) => {
     reactStrictMode: true,
     transpilePackages: ["@repo/ui"],
     images: {
-      domains: [hostname],
+      domains: ["image.tmdb.org"],
       remotePatterns: [
         {
-          protocol,
-          hostname,
+          protocol: "https",
+          hostname: "image.tmdb.org",
           pathname: "/**",
         },
       ],
