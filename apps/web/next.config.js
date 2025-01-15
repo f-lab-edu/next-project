@@ -17,6 +17,7 @@ module.exports = (phase) => {
     reactStrictMode: true,
     transpilePackages: ["@repo/ui"],
     images: {
+      domains: [hostname],
       remotePatterns: [
         {
           protocol,
